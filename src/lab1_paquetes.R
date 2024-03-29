@@ -1,0 +1,7 @@
+install.packages(c('repr', 'IRdisplay', 'evaluate', 'crayon') )
+install.packages(c('pbdZMQ', 'devtools', 'uuid', 'digest'), dependencies=TRUE )
+install.packages('languageserver')
+library('devtools')
+devtools::install_github("ManuelHentschel/vscDebugger")
+install.packages('IRkernel')
+#IRkernel::installspec()
