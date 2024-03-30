@@ -114,10 +114,10 @@ tb_grid_search <- data.table(
 # itero por los loops anidados para cada hiperparametro
 
 # Definir los rangos de parámetros como variables
-rangos_cp <- seq(-0.15, -0.01, by = 0.02)
-rangos_min_split <- c(700, 800, 900, 1000, 1100)
-rangos_min_bucket <- c(22, 23, 24)
-rangos_max_depth <- c(9, 10, 11, 12)
+rangos_cp <- seq(-1, -0.01, by = 0.25)
+rangos_min_split <- c(100, 500, 1000, 5000, 10000)
+rangos_min_bucket <- c(10, 20, 50, 100, 500, 1000 )
+rangos_max_depth <- c(9, 10)
 
 # Inicializa el contador de combinaciones válidas
 combinaciones_validas <- 0
