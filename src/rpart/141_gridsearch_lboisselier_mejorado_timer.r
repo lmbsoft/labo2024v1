@@ -114,9 +114,9 @@ tb_grid_search <- data.table(
 # itero por los loops anidados para cada hiperparametro
 
 # Definir los rangos de parámetros como variables
-rangos_cp <- seq(-0.15, -0.01, by = 0.1)
-rangos_min_split <- c(700, 750, 800, 850, 900, 950, 1000, 1050, 1100)
-rangos_min_bucket <- c(20, 21, 22, 23, 24, 25)
+rangos_cp <- seq(-0.15, -0.01, by = 0.02)
+rangos_min_split <- c(700, 800, 900, 1000, 1100)
+rangos_min_bucket <- c(22, 23, 24)
 rangos_max_depth <- c(9, 10, 11, 12)
 
 # Inicializa el contador de combinaciones válidas
@@ -171,8 +171,8 @@ for (vcp in rangos_cp) {
           iteraciones_restantes <- iteraciones_total - iteraciones_completadas
           tiempo_restante_estimado <- tiempo_promedio_por_iteracion * iteraciones_restantes
           
-          # Mostrar mensaje de progreso
-          cat(sprintf("Progreso: %d de %d iteraciones completadas. Tiempo restante estimado: %s\n", iteraciones_completadas, iteraciones_total, as.character(tiempo_restante_estimado)))
+          # Mostrar mensaje de progreso con el tiempo formateado de manera más legible
+          cat(sprintf("Progreso: %d de %d iteraciones completadas. Tiempo restante estimado: %.2f minutos\n", iteraciones_completadas, iteraciones_total, tiempo_restante_estimado / 60))
         }
       }
     }
