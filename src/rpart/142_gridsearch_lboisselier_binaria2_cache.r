@@ -182,9 +182,8 @@ for (vcp in rangos_cp) {
 
           if (nrow(resultado_cache) > 0) {
               ganancia_promedio <- resultado_cache$ganancia_promedio[1]  # Asegura tomar el primer valor si hay duplicados
-              #imprimir que aproveché la caché, mostrar params y resultado
-              print(paste("Aprovechando cache para", params, "con ganancia promedio", ganancia_promedio))
-              
+              #imprimir los valores de params en una sola línea y separados por coma
+              print(paste("Aprovechando cache para", paste(params, collapse = ", "), "con ganancia promedio", ganancia_promedio))
           } else {
               # La combinación de parámetros es nueva, calcula la ganancia promedio
               ganancia_promedio <- ArbolesMontecarlo(PARAM$semillas, param_basicos)
