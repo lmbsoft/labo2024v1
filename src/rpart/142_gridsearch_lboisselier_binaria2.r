@@ -97,6 +97,10 @@ dataset <- dataset[clase_ternaria != ""]
 
 # genero la clase binaria
 dataset[, clase_binaria := ifelse(clase_ternaria == "BAJA+2", "pos", "neg")]
+
+#guardar el dataset modificado para explorarlo
+fwrite(dataset, "./datasets/dataset_pequeno_binario.csv")
+
 # quito la clase ternaria
 dataset[, clase_ternaria := NULL]
 
@@ -120,10 +124,10 @@ tb_grid_search <- data.table(
 # itero por los loops anidados para cada hiperparametro
 
 # Definir los rangos de parámetros como variables
-rangos_cp <- seq(-1, 1, by = 0.25)
-rangos_min_split <- c(100, 500, 1000, 5000, 10000)
-rangos_min_bucket <- c(10, 20, 50, 100, 500, 1000 )
-rangos_max_depth <- c(9, 10)
+rangos_cp <- c(-1) #seq(-1, 1, by = 0.25) #después de varios experimentos me doy cuenta que no es necesario variar cp en negativo, con -1 basta
+rangos_min_split <- c(10, 20, 50, 100, 250, 500, 1000, 5000, 10000)
+rangos_min_bucket <- c(10, 20, 30, 50, 100, 250, 500, 1000 )
+rangos_max_depth <- c(9, 10, 11, 12)
 
 # Inicializa el contador de combinaciones válidas
 combinaciones_validas <- 0
