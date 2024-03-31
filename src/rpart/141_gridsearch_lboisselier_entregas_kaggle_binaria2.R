@@ -82,3 +82,4 @@ for (minsplit in minsplit_values) {
 # o incluye la creación de estos directorios dentro del script.
 
 
+
