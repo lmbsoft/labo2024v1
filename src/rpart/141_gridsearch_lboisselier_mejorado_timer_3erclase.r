@@ -118,9 +118,9 @@ tb_grid_search <- data.table(
 
 # Definir los rangos de parámetros como variables
 rangos_cp <- c(-0.9)
-rangos_min_split <- c(800)
-rangos_min_bucket <- c(200)
-rangos_max_depth <- c(10)
+rangos_min_split <- c(2002)
+rangos_min_bucket <- c(998)
+rangos_max_depth <- c(17)
 
 # Inicializa el contador de combinaciones válidas
 combinaciones_validas <- 0
@@ -188,6 +188,7 @@ for (vcp in rangos_cp) {
 }
 
 print("fin de la ejecución")
+
 
 
 
