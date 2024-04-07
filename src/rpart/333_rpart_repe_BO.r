@@ -1,5 +1,5 @@
 # Optimizacion Bayesiana de hiperparametros de  rpart
-# trabaja con clase_binaria2  POS = { BAJA+1, BAJA+2 }
+# 10-repeated 5-fold cross validation
 
 # limpio la memoria
 rm(list = ls()) # remove all objects
@@ -7,6 +7,7 @@ gc() # garbage collection
 
 require("data.table")
 require("rlist")
+require("primes")
 
 require("rpart")
 require("parallel")
@@ -21,19 +22,35 @@ require("mlrMBO")
 # cantidad de iteraciones de la Optimizacion Bayesiana
 PARAM <- list()
 
-PARAM$BO_iter <- 100 # cantidad de iteraciones de la Bayesian Optimization
+PARAM$xval_repeated <- 10
+PARAM$BO_iter <- 50 #cantidad de iteraciones de la Bayesian Optimization
 
 # la letra L al final de 1L significa ENTERO
 PARAM$hs <- makeParamSet(
+    makeNumericParam("cp", lower = -1, upper = 0.1),
     makeIntegerParam("minsplit", lower = 1L, upper = 8000L),
     makeIntegerParam("minbucket", lower = 1L, upper = 4000L),
     makeIntegerParam("maxdepth", lower = 3L, upper = 20L),
-    makeNumericParam("peso_positivos", lower = 1.0, upper = 40.0),
-    makeIntegerParam("corte", lower = 7000, upper = 15000),
     forbidden = quote(minbucket > 0.5 * minsplit)
 )
 # minbuket NO PUEDE ser mayor que la mitad de minsplit
 
+
+#------------------------------------------------------------------------------
+# genera un vector de numeros primos aleatorios
+# partiendo de MI primer semilla
+
+generarprimos <- function( qty ){
+
+  # recupero MI primer semilla
+  tabla_semillas <- fread( "./datasets//mis_semillas.txt" )
+  mi_semilla <- tabla_semillas[ 1, semilla ]  # 1 es mi primer semilla
+
+  primos_universo  <- generate_primes(min=100000, max=1000000)  #genero TODOS los numeros primos entre 100k y 1M
+  set.seed( mi_semilla ) #seteo la semilla que controla al sample de los primos
+
+  return( sample(primos_universo, qty) )
+}
 
 #------------------------------------------------------------------------------
 # graba a un archivo los componentes de lista
@@ -95,50 +112,31 @@ particionar <- function(data, division, agrupa = "", campo = "fold",
 # param tiene los hiperparametros del arbol
 
 ArbolSimple <- function(fold_test, data, param) {
-
-  # armo los parametros exclusivos de rpart
-  param_rpart <- list()
-  param_rpart$cp <- -1.0  # lo dejo fijo
-  param_rpart$minsplit <- param$minsplit
-  param_rpart$minbucket <- param$minbucket
-  param_rpart$maxdepth <- param$maxdepth
-
-  campos_buenos <- setdiff( colnames(dataset),
-    c( "clase_ternaria", "fold") )
-
-  # la razon que esto deba ser GLOBAL  es por un bug de rpart
-  # https://stackoverflow.com/questions/22258739/apply-weights-in-rpart-model-gives-error
-  vpeso <<- copy(as.vector(data[ fold != fold_test,
-    ifelse( clase_binaria2=="POS", param$peso_positivos, 1.0)  ]))
-
   # genero el modelo
   # entreno en todo MENOS el fold_test que uso para testing
-  modelo <- rpart("clase_binaria2 ~ .",
-    data = data[fold != fold_test, campos_buenos, with=FALSE],
+  modelo <- rpart("clase_ternaria ~ .",
+    data = data[fold != fold_test, ],
     xval = 0,
-    control = param_rpart,
-    weights = vpeso
+    control = param
   )
 
   # aplico el modelo a los datos de testing
   # aplico el modelo sobre los datos de testing
   # quiero que me devuelva probabilidades
   prediccion <- predict(modelo,
-    data[fold == fold_test, campos_buenos, with=FALSE],
+    data[fold == fold_test, ],
     type = "prob"
   )
 
   # esta es la probabilidad de baja
-  prob_pos <- prediccion[, "POS"]
+  prob_baja2 <- prediccion[, "BAJA+2"]
 
-  # voy a quedarme con los mejores
-  tb_resultados <- copy(data[fold == fold_test, list(clase_ternaria)])
-  tb_resultados[ , prob := prob_pos ]
-  setorder( tb_resultados, -prob )  # ordeno por prob descendente
-  
-  # calculo la ganancia, teniendo en cuenta param$prob_corte
-  ganancia_testing <- tb_resultados[1:param$corte,
-    sum(ifelse(clase_ternaria == "BAJA+2", 117000, -3000 )) 
+  # calculo la ganancia
+  ganancia_testing <- data[fold == fold_test][
+    prob_baja2 > 1 / 40,
+    sum(ifelse(clase_ternaria == "BAJA+2",
+      117000, -3000
+    ))
   ]
 
   # esta es la ganancia sobre el fold de testing, NO esta normalizada
@@ -152,8 +150,6 @@ ArbolesCrossValidation <- function(data, param, qfolds, pagrupa, semilla) {
 
   # particiono en dataset en folds
   particionar(data, divi, seed = semilla, agrupa = pagrupa)
-
-  param$corte <- param$corte / qfolds
 
   ganancias <- mcmapply(ArbolSimple,
     seq(qfolds), # 1 2 3 4 5
@@ -179,25 +175,37 @@ ArbolesCrossValidation <- function(data, param, qfolds, pagrupa, semilla) {
 EstimarGanancia <- function(x) {
   GLOBAL_iteracion <<- GLOBAL_iteracion + 1
 
-  xval_folds <- 5
-  # param= x los hiperparametros del arbol
-  # qfolds= xval_folds  la cantidad de folds
-  ganancia <- ArbolesCrossValidation(dataset,
-    param = x,
-    qfolds = xval_folds,
-    pagrupa = "clase_ternaria",
-    semilla = ksemilla_azar
-  )
+  # creo un vector vacio donde ire agregando las ganancias
+  vganancias <- c()
 
+  # recorro las semillas
+  for( semillita in kvector_semillas )
+  {
+    xval_folds <- 5
+    # param= x los hiperparametros del arbol
+    # qfolds= xval_folds  la cantidad de folds
+    ganancia <- ArbolesCrossValidation(dataset,
+      param = x,
+      qfolds = xval_folds,
+      pagrupa = "clase_ternaria",
+      semilla = semillita
+    )
+
+    # agrego al vector
+    vganancias <- c( vganancias, ganancia) 
+  }
+
+  ganancia_promedio <- mean( vganancias )
   # logueo
   xx <- x
   xx$xval_folds <- xval_folds
-  xx$ganancia <- ganancia
+  xx$xval_repe <- length( kvector_semillas )
+  xx$ganancia <- ganancia_promedio
   xx$iteracion <- GLOBAL_iteracion
 
-  # si es ganancia superadora la almaceno en mejor
-  if( ganancia > GLOBAL_mejor ) {
-    GLOBAL_mejor <<- ganancia
+  # si es ganancia_promedio superadora la almaceno en mejor
+  if( ganancia_promedio > GLOBAL_mejor ) {
+    GLOBAL_mejor <<- ganancia_promedio
     Sys.sleep(2)
     loguear(xx, arch = archivo_log_mejor)
   }
@@ -206,7 +214,7 @@ EstimarGanancia <- function(x) {
   Sys.sleep(2)
   loguear(xx, arch = archivo_log)
 
-  return(ganancia)
+  return(ganancia_promedio)
 }
 #------------------------------------------------------------------------------
 #------------------------------------------------------------------------------
@@ -215,32 +223,27 @@ EstimarGanancia <- function(x) {
 # Establezco el Working Directory
 setwd("~/buckets/b1/")
 
-# cargo MI semilla, que esta en MI bucket
-tabla_semillas <- fread( "./datasets//mis_semillas.txt" )
-ksemilla_azar <- tabla_semillas[ 1, semilla ]  # 1 es mi primer semilla
+# genero PARAM$xval_repeated   numeros primos
+kvector_semillas <- generarprimos( PARAM$xval_repeated )
 
 # cargo los datos
 dataset <- fread("./datasets/dataset_pequeno.csv")
 # entreno en 202107
 dataset <- dataset[foto_mes==202107]
 
-# defino la clase_binaria2  POS = {BAJA+1, BAJA+2}
-dataset[, clase_binaria2 := 
-  ifelse(clase_ternaria=="CONTINUA", "NEG", "POS" )]
-
 
 # creo la carpeta donde va el experimento
 #  HT  representa  Hiperparameter Tuning
 dir.create("./exp/", showWarnings = FALSE)
-dir.create("./exp/HT3270/", showWarnings = FALSE)
+dir.create("./exp/HT3330/", showWarnings = FALSE)
 
 # Establezco el Working Directory DEL EXPERIMENTO
-setwd("./exp/HT3270/")
+setwd("./exp/HT3330/")
 
 
-archivo_log <- "HT327.txt"
-archivo_log_mejor <- "HT327_mejor.txt"
-archivo_BO <- "HT327.RDATA"
+archivo_log <- "HT333.txt"
+archivo_log_mejor <- "HT333_mejor.txt"
+archivo_BO <- "HT333.RDATA"
 
 # leo si ya existe el log
 #  para retomar en caso que se se corte el programa
@@ -297,8 +300,3 @@ if (!file.exists(archivo_BO)) {
   run <- mboContinue(archivo_BO)
 }
 # retomo en caso que ya exista
-
-
-
-
-
