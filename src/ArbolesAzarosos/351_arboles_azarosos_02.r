@@ -16,9 +16,9 @@ PARAM$experimento <- 3510
 # parameetros rpart
 PARAM$rpart_param <- list(
   "cp" = -1,
-  "minsplit" = 100,
-  "minbucket" = 10,
-  "maxdepth" = 8
+  "minsplit" = 1000,
+  "minbucket" = 1,
+  "maxdepth" = 10
 )
 
 # parametros  arbol
