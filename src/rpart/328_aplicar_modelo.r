@@ -11,10 +11,10 @@ require("rpart.plot")
 # optimización de hiperparametros
 PARAM <- list()
 
-PARAM$minsplit <- 788
-PARAM$minbucket <- 300
-PARAM$maxdepth <- 7
-PARAM$peso_positivos <- 36.2
+PARAM$minsplit <- 4493
+PARAM$minbucket <- 1148
+PARAM$maxdepth <- 4
+PARAM$peso_positivos <- 13.37
 
 #------------------------------------------------------------------------------
 #------------------------------------------------------------------------------
@@ -74,8 +74,8 @@ dapply[, prob_pos := prediccion[, "POS"]]
 
 # genero el archivo para Kaggle
 # primero creo la carpeta donde va el experimento
-dir.create("./exp/")
-dir.create("./exp/KA3280")
+dir.create("./exp/", showWarnings = FALSE)
+dir.create("./exp/KA3280", showWarnings = FALSE)
 
 # ordeno descendente por probabilidad
 setorder( dapply, -prob_pos )
@@ -90,7 +90,12 @@ for( envios in seq( 7000, 13000, 500 ) ) {
 
   # solo los campos para Kaggle
   fwrite(dapply[, list(numero_de_cliente, Predicted)],
-    file = paste0( "./exp/KA3280/KA3280_001_", envios, ".csv"),
+    file = paste0( "./exp/KA3280/KA3280_001_", 
+    "cp_-1_",
+    "minsplit_", PARAM$minsplit, "_",
+    "minbucket_", PARAM$minbucket, "_",
+    "maxdepth_", PARAM$maxdepth, "_",
+    envios, ".csv"),
     sep = ","
   )
 
