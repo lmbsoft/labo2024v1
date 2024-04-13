@@ -86,6 +86,7 @@ prediccion <- predict(modelo, dapply)
 # Genero la entrega para Kaggle
 entrega <- as.data.table(list(
   "numero_de_cliente" = dapply[, numero_de_cliente],
+  "prob" = prediccion$predictions[, "BAJA+2"],
   "Predicted" = as.numeric(prediccion$predictions[, "BAJA+2"] > 1 / 40)
 )) # genero la salida
 
@@ -93,21 +94,44 @@ entrega <- as.data.table(list(
 # HT  representa  Hiperparameter Tuning
 dir.create("./exp/", showWarnings = FALSE)
 dir.create("./exp/KA4310/", showWarnings = FALSE)
-#archivo_salida <- "./exp/KA4310/KA4310_001.csv"
-# Construyo el nombre del archivo con los parámetros
-nombre_archivo <- paste0(
-  "KA4310_", # prefijo del nombre
-  "nt", param$num.trees, "_",  # número de árboles
-  "mtry", param$mtry, "_",  # mtry
-  "ns", param$min.node.size, "_",  # min.node.size
-  "md", param$max.depth, # max.depth
-  ".csv" 
-)
 
-archivo_salida <- paste0("./exp/KA4310/", nombre_archivo)
+# ordeno por probabilidad descendente
+setorder(entrega, -prob)
+#quito la columna prob para que no de error al subir
+entrega[, prob := NULL]
 
-# genero el archivo para Kaggle
-fwrite(entrega,
-  file = archivo_salida,
-  sep = ","
-)
+
+# genero archivos con los  "envios" mejores
+# deben subirse "inteligentemente" a Kaggle para no malgastar submits
+# si la palabra inteligentemente no le significa nada aun
+# suba TODOS los archivos a Kaggle
+# espera a la siguiente clase sincronica en donde el tema sera explicado
+
+#mi estrategia para los cortes será la siguiente:
+#voy a generar hasta el corte que me dió en la entrega anterior: 26000
+# luego bajo haciendo una búsqueda binaria entregando y comparando el puntaje de cada entrega
+
+cortes <- seq(4000, 26000, by = 500)
+for (envios in cortes) {
+  entrega[, Predicted := 0L]
+  entrega[1:envios, Predicted := 1L]
+
+  # Construyo el nombre del archivo con los parámetros
+  nombre_archivo <- paste0(
+    "KA4310_", # prefijo del nombre
+    "nt", param$num.trees, "_",  # número de árboles
+    "mtry", param$mtry, "_",  # mtry
+    "ns", param$min.node.size, "_",  # min.node.size
+    "md", param$max.depth, # max.depth
+    "_", envios,  # cantidad de envios
+    ".csv" 
+  )
+
+  archivo_salida <- paste0("./exp/KA4310/", nombre_archivo)
+
+  # genero el archivo para Kaggle
+  fwrite(entrega,
+    file = archivo_salida,
+    sep = ","
+  )
+}
