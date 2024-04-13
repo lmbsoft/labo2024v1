@@ -1,0 +1,1 @@
+for archivo in *.csv; do kaggle competitions submit -c labo-i-2024-virtual -f "$archivo" -m "$archivo"; echo "Archivo $archivo enviado."; done
