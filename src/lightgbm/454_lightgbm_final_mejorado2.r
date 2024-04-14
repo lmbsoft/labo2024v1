@@ -20,12 +20,10 @@ PARAM$input$future <- c(202109) # meses donde se aplica el modelo
 
 # Definir configuraciones de hiperparámetros en una lista
 configuraciones <- list(
-  list(num_iterations = 1476, learning_rate = 0.010481, num_leaves = 546, feature_fraction = 0.633262, min_data_in_leaf = 1396, envios = 13296),
-  list(num_iterations = 997, learning_rate = 0.010006, num_leaves = 965, feature_fraction = 0.369546, min_data_in_leaf = 1215, envios = 10602),
-  # Añadir más configuraciones según sea necesario
+  list(num_iterations = 1476, learning_rate = 0.0104814995208819, num_leaves = 546, feature_fraction = 0.633261572473273, min_data_in_leaf = 1396, envios = 13296)
+ # list(num_iterations = 997, learning_rate = 0.010006, num_leaves = 965, feature_fraction = 0.369546, min_data_in_leaf = 1215, envios = 10602)
+
 )
-
-
 
 PARAM$finalmodel$max_bin <- 31
 
@@ -141,16 +139,17 @@ for (config in configuraciones) {
   # suba TODOS los archivos a Kaggle
   # espera a la siguiente clase sincronica en donde el tema sera explicado
 
-  cortes <- seq(config$envios-500, config$envios+500, by = 500)
+  #cortes <- seq(config$envios-500, config$envios+500, by = 500)
+  cortes <- seq(8000, 15000, by = 500)
   for (envios in cortes) {
-    nombre_archivo <- sprintf("it_%f_lr_%f_nl_%d_ff_%f_mdl_%d_env_%d.csv",
+    nombre_archivo <- sprintf("it_%d_lr_%f_nl_%d_ff_%f_mdl_%d_env_%d.csv",
                               config$num_iterations,
                               config$learning_rate, config$num_leaves, config$feature_fraction, config$min_data_in_leaf, envios)
     tb_entrega[, Predicted := 0L]
     tb_entrega[1:envios, Predicted := 1L]
 
     fwrite(tb_entrega[, list(numero_de_cliente, Predicted)],
-      file = paste0(PARAM$experimento, "_", nombre_archivo, ".csv"),
+      file = paste0(PARAM$experimento, "_", nombre_archivo),
       sep = ","
     )
   }
