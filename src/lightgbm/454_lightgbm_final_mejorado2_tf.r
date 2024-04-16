@@ -1,0 +1,157 @@
+# para correr el Google Cloud
+
+# limpio la memoria
+rm(list = ls()) # remove all objects
+gc() # garbage collection
+
+require("data.table")
+require("lightgbm")
+
+
+# defino los parametros de la corrida, en una lista, la variable global  PARAM
+#  muy pronto esto se leera desde un archivo formato .yaml
+PARAM <- list()
+PARAM$experimento <- "KA4510_TF"
+
+PARAM$input$dataset <- "./datasets/dataset_pequeno.csv"
+PARAM$input$training <- c(202107) # meses donde se entrena el modelo
+PARAM$input$future <- c(202109) # meses donde se aplica el modelo
+
+
+# Definir configuraciones de hiperparámetros en una lista
+configuraciones <- list(
+  list(num_iterations = 543, learning_rate = 0.036838570723779, num_leaves = 36, feature_fraction = 0.201559044166511, min_data_in_leaf = 465, envios = 8000)
+ # list(num_iterations = 997, learning_rate = 0.010006, num_leaves = 965, feature_fraction = 0.369546, min_data_in_leaf = 1215, envios = 10602)
+
+)
+
+PARAM$finalmodel$max_bin <- 31
+
+#------------------------------------------------------------------------------
+#------------------------------------------------------------------------------
+# Aqui empieza el programa
+setwd("~/buckets/b1")
+
+# cargo MI semilla, que esta en MI bucket
+tabla_semillas <- fread( "./datasets//mis_semillas.txt" )
+ksemilla_azar <- tabla_semillas[ 1, semilla ]  # 1 es mi primer semilla
+
+
+# cargo el dataset donde voy a entrenar
+dataset <- fread(PARAM$input$dataset, stringsAsFactors = TRUE)
+
+
+#--------------------------------------
+
+# paso la clase a binaria que tome valores {0,1}  enteros
+# set trabaja con la clase  POS = { BAJA+1, BAJA+2 }
+# esta estrategia es MUY importante
+dataset[, clase01 := ifelse(clase_ternaria %in% c("BAJA+2", "BAJA+1"), 1L, 0L)]
+
+#--------------------------------------
+
+# los campos que se van a utilizar
+campos_buenos <- setdiff(colnames(dataset), c("clase_ternaria", "clase01"))
+
+#--------------------------------------
+
+
+# establezco donde entreno
+dataset[, train := 0L]
+dataset[foto_mes %in% PARAM$input$training, train := 1L]
+
+#--------------------------------------
+# creo las carpetas donde van los resultados
+# creo la carpeta donde va el experimento
+dir.create("./exp/", showWarnings = FALSE)
+dir.create(paste0("./exp/", PARAM$experimento, "/"), showWarnings = FALSE)
+
+# Establezco el Working Directory DEL EXPERIMENTO
+setwd(paste0("./exp/", PARAM$experimento, "/"))
+
+for (config in configuraciones) {
+
+  # dejo los datos en el formato que necesita LightGBM
+  dtrain <- lgb.Dataset(
+    data = data.matrix(dataset[train == 1L, campos_buenos, with = FALSE]),
+    label = dataset[train == 1L, clase01]
+  )
+
+  # genero el modelo
+  # estos hiperparametros  salieron de una laaarga Optmizacion Bayesiana
+  modelo <- lgb.train(
+    data = dtrain,
+    param = list(
+      objective = "binary",
+      max_bin = PARAM$finalmodel$max_bin,
+      learning_rate = config$learning_rate,
+      num_iterations = config$num_iterations,
+      num_leaves = config$num_leaves,
+      min_data_in_leaf = config$min_data_in_leaf,
+      feature_fraction = config$feature_fraction,
+      seed = ksemilla_azar
+    )
+  )
+
+  #--------------------------------------
+  # ahora imprimo la importancia de variables
+  tb_importancia <- as.data.table(lgb.importance(modelo))
+  archivo_importancia <- "impo.txt"
+
+  fwrite(tb_importancia,
+    file = archivo_importancia,
+    sep = "\t"
+  )
+
+  #--------------------------------------
+  # grabo a disco el modelo en un formato para seres humanos ... ponele ...
+
+  lgb.save(modelo, "modelo.txt" )
+
+  #--------------------------------------
+
+  # aplico el modelo a los datos sin clase
+  dapply <- dataset[foto_mes == PARAM$input$future]
+
+  # aplico el modelo a los datos nuevos
+  prediccion <- predict(
+    modelo,
+    data.matrix(dapply[, campos_buenos, with = FALSE])
+  )
+
+  # genero la tabla de entrega
+  tb_entrega <- dapply[, list(numero_de_cliente, foto_mes)]
+  tb_entrega[, prob := prediccion]
+
+  # grabo las probabilidad del modelo
+  fwrite(tb_entrega,
+    file = "prediccion.txt",
+    sep = "\t"
+  )
+
+  # ordeno por probabilidad descendente
+  setorder(tb_entrega, -prob)
+
+
+  # genero archivos con los  "envios" mejores
+  # deben subirse "inteligentemente" a Kaggle para no malgastar submits
+  # si la palabra inteligentemente no le significa nada aun
+  # suba TODOS los archivos a Kaggle
+  # espera a la siguiente clase sincronica en donde el tema sera explicado
+
+  #cortes <- seq(config$envios-500, config$envios+500, by = 500)
+  cortes <- seq(8000, 15000, by = 500)
+  for (envios in cortes) {
+    nombre_archivo <- sprintf("it_%d_lr_%f_nl_%d_ff_%f_mdl_%d_env_%d.csv",
+                              config$num_iterations,
+                              config$learning_rate, config$num_leaves, config$feature_fraction, config$min_data_in_leaf, envios)
+    tb_entrega[, Predicted := 0L]
+    tb_entrega[1:envios, Predicted := 1L]
+
+    fwrite(tb_entrega[, list(numero_de_cliente, Predicted)],
+      file = paste0(PARAM$experimento, "_", nombre_archivo),
+      sep = ","
+    )
+  }
+}
+cat("\n\nLa generacion de los archivos para Kaggle ha terminado\n")
