@@ -1,0 +1,359 @@
+R version 4.3.3 (2024-02-29) -- "Angel Food Cake"
+Copyright (C) 2024 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> source("~/labo2024v1/src/workflow-01/501_workflow_bo-fija-semillas-01c.r")
+Loading required package: rlang
+Loading required package: yaml
+Loading required package: data.table
+data.table 1.15.2 using 4 threads (see ?getDTthreads).  Latest news: r-datatable.com
+
+Attaching package: ‘data.table’
+
+The following object is masked from ‘package:rlang’:
+
+    :=
+
+Loading required package: ParamHelpers
+nombrewf =  0427-bo-fija-semillas-01c 
+         used (Mb) gc trigger (Mb) max used (Mb)
+Ncells 283231 15.2     664251 35.5   451029 24.1
+Vcells 486753  3.8    8388608 64.0  1814489 13.9
+Loading required package: data.table
+Loading required package: yaml
+exp_end  nombrewf: 0427-bo-fija-semillas-01c 
+         used (Mb) gc trigger (Mb) max used (Mb)
+Ncells 283231 15.2     664251 35.5   451029 24.1
+Vcells 486753  3.8    8388608 64.0  1814489 13.9
+Loading required package: data.table
+Loading required package: yaml
+exp_end  nombrewf: 0427-bo-fija-semillas-01c 
+         used (Mb) gc trigger (Mb) max used (Mb)
+Ncells 283231 15.2     664251 35.5   451029 24.1
+Vcells 486753  3.8    8388608 64.0  1814489 13.9
+Loading required package: data.table
+Loading required package: yaml
+mrentabilidad  mrentabilidad_annual  mcomisiones  mactivos_margen  mpasivos_margen  mcuenta_corriente_adicional  mcuenta_corriente  mcaja_ahorro  mcaja_ahorro_adicional  mcaja_ahorro_dolares  mcuentas_saldo  mautoservicio  mtarjeta_visa_consumo  mtarjeta_master_consumo  mprestamos_personales  mprestamos_prendarios  mprestamos_hipotecarios  mplazo_fijo_dolares  mplazo_fijo_pesos  minversion1_pesos  minversion1_dolares  minversion2  mpayroll  mpayroll2  mcuenta_debitos_automaticos  mttarjeta_visa_debitos_automaticos  mttarjeta_master_debitos_automaticos  mpagodeservicios  mpagomiscuentas  mcajeros_propios_descuentos  mtarjeta_visa_descuentos  mtarjeta_master_descuentos  mcomisiones_mantenimiento  mcomisiones_otras  mforex_buy  mforex_sell  mtransferencias_recibidas  mtransferencias_emitidas  mextraccion_autoservicio  mcheques_depositados  mcheques_emitidos  mcheques_depositados_rechazados  mcheques_emitidos_rechazados  matm  matm_other  Master_mfinanciacion_limite  Master_msaldototal  Master_msaldopesos  Master_msaldodolares  Master_mconsumospesos  Master_mconsumosdolares  Master_mlimitecompra  Master_madelantopesos  Master_madelantodolares  Master_mpagado  Master_mpagospesos  Master_mpagosdolares  Master_mconsumototal  Master_mpagominimo  Visa_mfinanciacion_limite  Visa_msaldototal  Visa_msaldopesos  Visa_msaldodolares  Visa_mconsumospesos  Visa_mconsumosdolares  Visa_mlimitecompra  Visa_madelantopesos  Visa_madelantodolares  Visa_mpagado  Visa_mpagospesos  Visa_mpagosdolares  Visa_mconsumototal  Visa_mpagominimo  exp_end  nombrewf: 0427-bo-fija-semillas-01c 
+         used (Mb) gc trigger (Mb) max used (Mb)
+Ncells 283231 15.2     664251 35.5   451029 24.1
+Vcells 486753  3.8    8388608 64.0  1814489 13.9
+Loading required package: data.table
+Loading required package: yaml
+Loading required package: Rcpp
+Loading required package: ranger
+Loading required package: randomForest
+randomForest 4.7-1.1
+Type rfNews() to see new features/changes/bug fixes.
+
+Attaching package: ‘randomForest’
+
+The following object is masked from ‘package:ranger’:
+
+    importance
+
+Loading required package: lightgbm
+[1] "clase_ternaria"
+exp_end  nombrewf: 0427-bo-fija-semillas-01c 
+         used (Mb) gc trigger (Mb) max used (Mb)
+Ncells 283231 15.2     664251 35.5   451029 24.1
+Vcells 486753  3.8    8388608 64.0  1814489 13.9
+Loading required package: data.table
+Loading required package: yaml
+exp_end  nombrewf: 0427-bo-fija-semillas-01c 
+         used (Mb) gc trigger (Mb) max used (Mb)
+Ncells 283231 15.2     664251 35.5   451029 24.1
+Vcells 486753  3.8    8388608 64.0  1814489 13.9
+Loading required package: data.table
+Loading required package: rlist
+Loading required package: yaml
+Loading required package: lightgbm
+Loading required package: DiceKriging
+Loading required package: mlrMBO
+Loading required package: mlr
+Loading required package: ParamHelpers
+Warning message: 'mlr' is in 'maintenance-only' mode since July 2019.
+Future development will only happen in 'mlr3'
+(<https://mlr3.mlr-org.com>). Due to the focus on 'mlr3' there might be
+uncaught bugs meanwhile in {mlr} - please consider switching.
+Loading required package: smoof
+Loading required package: checkmate
+
+Attaching package: ‘checkmate’
+
+The following object is masked from ‘package:DiceKriging’:
+
+    checkNames
+
+            used   (Mb) gc trigger   (Mb)  max used   (Mb)
+Ncells   2052590  109.7    3975810  212.4   2564820  137.0
+Vcells 343152801 2618.1  916138223 6989.6 763378072 5824.2
+Error in doBasicGenDesignChecks(par.set) : par.set must not be empty!
+Calls: mbo ... initOptProblem -> generateDesign -> doBasicGenDesignChecks
+No traceback available 
+Error during wrapup: exiting after script error
+Error: no more error handlers available (recursive errors?); invoking 'abort' restart
+Execution halted
+Error in exp_correr_script(param_local) : 
+  Falla catastrofica, ha terminado anormalmente~/labo2024v1///src/workflow-01/z561_HT_lightgbm.r
+No traceback available 
+Error during wrapup: exiting after script error
+Error: no more error handlers available (recursive errors?); invoking 'abort' restart
+
+
+
+----------------------------------------------------
+
+R version 4.3.3 (2024-02-29) -- "Angel Food Cake"
+Copyright (C) 2024 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> source("~/labo2024v1/src/workflow-01/501_workflow_bo-fija-01b.r")
+Loading required package: rlang
+Loading required package: yaml
+Loading required package: data.table
+data.table 1.15.2 using 4 threads (see ?getDTthreads).  Latest news: r-datatable.com
+
+Attaching package: ‘data.table’
+
+The following object is masked from ‘package:rlang’:
+
+    :=
+
+Loading required package: ParamHelpers
+nombrewf =  0427-bo-fija-01b 
+         used (Mb) gc trigger (Mb) max used (Mb)
+Ncells 283231 15.2     664251 35.5   451029 24.1
+Vcells 486753  3.8    8388608 64.0  1814487 13.9
+Loading required package: data.table
+Loading required package: yaml
+exp_end  nombrewf: 0427-bo-fija-01b 
+         used (Mb) gc trigger (Mb) max used (Mb)
+Ncells 283231 15.2     664251 35.5   451029 24.1
+Vcells 486753  3.8    8388608 64.0  1814487 13.9
+Loading required package: data.table
+Loading required package: yaml
+exp_end  nombrewf: 0427-bo-fija-01b 
+         used (Mb) gc trigger (Mb) max used (Mb)
+Ncells 283231 15.2     664251 35.5   451029 24.1
+Vcells 486753  3.8    8388608 64.0  1814487 13.9
+Loading required package: data.table
+Loading required package: yaml
+mrentabilidad  mrentabilidad_annual  mcomisiones  mactivos_margen  mpasivos_margen  mcuenta_corriente_adicional  mcuenta_corriente  mcaja_ahorro  mcaja_ahorro_adicional  mcaja_ahorro_dolares  mcuentas_saldo  mautoservicio  mtarjeta_visa_consumo  mtarjeta_master_consumo  mprestamos_personales  mprestamos_prendarios  mprestamos_hipotecarios  mplazo_fijo_dolares  mplazo_fijo_pesos  minversion1_pesos  minversion1_dolares  minversion2  mpayroll  mpayroll2  mcuenta_debitos_automaticos  mttarjeta_visa_debitos_automaticos  mttarjeta_master_debitos_automaticos  mpagodeservicios  mpagomiscuentas  mcajeros_propios_descuentos  mtarjeta_visa_descuentos  mtarjeta_master_descuentos  mcomisiones_mantenimiento  mcomisiones_otras  mforex_buy  mforex_sell  mtransferencias_recibidas  mtransferencias_emitidas  mextraccion_autoservicio  mcheques_depositados  mcheques_emitidos  mcheques_depositados_rechazados  mcheques_emitidos_rechazados  matm  matm_other  Master_mfinanciacion_limite  Master_msaldototal  Master_msaldopesos  Master_msaldodolares  Master_mconsumospesos  Master_mconsumosdolares  Master_mlimitecompra  Master_madelantopesos  Master_madelantodolares  Master_mpagado  Master_mpagospesos  Master_mpagosdolares  Master_mconsumototal  Master_mpagominimo  Visa_mfinanciacion_limite  Visa_msaldototal  Visa_msaldopesos  Visa_msaldodolares  Visa_mconsumospesos  Visa_mconsumosdolares  Visa_mlimitecompra  Visa_madelantopesos  Visa_madelantodolares  Visa_mpagado  Visa_mpagospesos  Visa_mpagosdolares  Visa_mconsumototal  Visa_mpagominimo  exp_end  nombrewf: 0427-bo-fija-01b 
+         used (Mb) gc trigger (Mb) max used (Mb)
+Ncells 283231 15.2     664251 35.5   451029 24.1
+Vcells 486753  3.8    8388608 64.0  1814487 13.9
+Loading required package: data.table
+Loading required package: yaml
+Loading required package: Rcpp
+Loading required package: ranger
+Loading required package: randomForest
+randomForest 4.7-1.1
+Type rfNews() to see new features/changes/bug fixes.
+
+Attaching package: ‘randomForest’
+
+The following object is masked from ‘package:ranger’:
+
+    importance
+
+Loading required package: lightgbm
+[1] "clase_ternaria"
+exp_end  nombrewf: 0427-bo-fija-01b 
+         used (Mb) gc trigger (Mb) max used (Mb)
+Ncells 283231 15.2     664251 35.5   451029 24.1
+Vcells 486753  3.8    8388608 64.0  1814487 13.9
+Loading required package: data.table
+Loading required package: yaml
+exp_end  nombrewf: 0427-bo-fija-01b 
+         used (Mb) gc trigger (Mb) max used (Mb)
+Ncells 283231 15.2     664251 35.5   451029 24.1
+Vcells 486753  3.8    8388608 64.0  1814487 13.9
+Loading required package: data.table
+Loading required package: rlist
+Loading required package: yaml
+Loading required package: lightgbm
+Loading required package: DiceKriging
+Loading required package: mlrMBO
+Loading required package: mlr
+Loading required package: ParamHelpers
+Warning message: 'mlr' is in 'maintenance-only' mode since July 2019.
+Future development will only happen in 'mlr3'
+(<https://mlr3.mlr-org.com>). Due to the focus on 'mlr3' there might be
+uncaught bugs meanwhile in {mlr} - please consider switching.
+Loading required package: smoof
+Loading required package: checkmate
+
+Attaching package: ‘checkmate’
+
+The following object is masked from ‘package:DiceKriging’:
+
+    checkNames
+
+            used   (Mb) gc trigger   (Mb)  max used   (Mb)
+Ncells   2052590  109.7    3975801  212.4   2564835  137.0
+Vcells 343152799 2618.1  916138221 6989.6 763378070 5824.2
+Error in doBasicGenDesignChecks(par.set) : par.set must not be empty!
+Calls: mbo ... initOptProblem -> generateDesign -> doBasicGenDesignChecks
+No traceback available 
+Error during wrapup: exiting after script error
+Error: no more error handlers available (recursive errors?); invoking 'abort' restart
+Execution halted
+Error in exp_correr_script(param_local) : 
+  Falla catastrofica, ha terminado anormalmente~/labo2024v1///src/workflow-01/z561_HT_lightgbm.r
+No traceback available 
+Error during wrapup: exiting after script error
+Error: no more error handlers available (recursive errors?); invoking 'abort' restart
+> source("~/labo2024v1/src/workflow-01/501_workflow_bo-fija-01b.r")
+Error in exp_correr_script(param_local) : object 'shell_script' not found
+No traceback available 
+Error during wrapup: exiting after script error
+Error: no more error handlers available (recursive errors?); invoking 'abort' restart
+> source("~/labo2024v1/src/workflow-01/501_workflow_bo-fija-01b.r")
+Error in exp_correr_script(param_local) : object 'shell_script' not found
+No traceback available 
+Error during wrapup: exiting after script error
+Error: no more error handlers available (recursive errors?); invoking 'abort' restart
+> source("~/labo2024v1/src/workflow-01/501_workflow_bo-fija-01b.r")
+Error in exp_correr_script(param_local) : object 'shell_script' not found
+No traceback available 
+Error during wrapup: exiting after script error
+Error: no more error handlers available (recursive errors?); invoking 'abort' restart
+> source("~/labo2024v1/src/workflow-01/501_workflow_bo-fija-01b.r")
+Error in exp_correr_script(param_local) : object 'shell_script' not found
+No traceback available 
+Error during wrapup: exiting after script error
+Error: no more error handlers available (recursive errors?); invoking 'abort' restart
+> source("~/labo2024v1/src/workflow-01/501_workflow_bo-fija-01b.r")
+Error in exp_correr_script(param_local) : object 'shell_script' not found
+No traceback available 
+Error during wrapup: exiting after script error
+Error: no more error handlers available (recursive errors?); invoking 'abort' restart
+> source("~/labo2024v1/src/workflow-01/501_workflow_bo-fija-01b.r")
+Error in exp_correr_script(param_local) : object 'shell_script' not found
+No traceback available 
+Error during wrapup: exiting after script error
+Error: no more error handlers available (recursive errors?); invoking 'abort' restart
+> source("~/labo2024v1/src/workflow-01/501_workflow_bo-fija-01b.r")
+Error in exp_correr_script(param_local) : object 'shell_script' not found
+No traceback available 
+Error during wrapup: exiting after script error
+Error: no more error handlers available (recursive errors?); invoking 'abort' restart
+> source("~/labo2024v1/src/workflow-01/501_workflow_bo-fija-01b.r")
+Error in exp_correr_script(param_local) : object 'shell_script' not found
+No traceback available 
+Error during wrapup: exiting after script error
+Error: no more error handlers available (recursive errors?); invoking 'abort' restart
+> source("~/labo2024v1/src/workflow-01/501_workflow_bo-fija-01b.r")
+nombrewf =  0427-bo-fija-01b 
+         used (Mb) gc trigger (Mb) max used (Mb)
+Ncells 283231 15.2     664251 35.5   451029 24.1
+Vcells 486753  3.8    8388608 64.0  1814487 13.9
+Loading required package: data.table
+Loading required package: yaml
+exp_end  nombrewf: 0427-bo-fija-01b 
+         used (Mb) gc trigger (Mb) max used (Mb)
+Ncells 283231 15.2     664251 35.5   451029 24.1
+Vcells 486753  3.8    8388608 64.0  1814487 13.9
+Loading required package: data.table
+Loading required package: yaml
+exp_end  nombrewf: 0427-bo-fija-01b 
+         used (Mb) gc trigger (Mb) max used (Mb)
+Ncells 283231 15.2     664251 35.5   451029 24.1
+Vcells 486753  3.8    8388608 64.0  1814487 13.9
+Loading required package: data.table
+Loading required package: yaml
+mrentabilidad  mrentabilidad_annual  mcomisiones  mactivos_margen  mpasivos_margen  mcuenta_corriente_adicional  mcuenta_corriente  mcaja_ahorro  mcaja_ahorro_adicional  mcaja_ahorro_dolares  mcuentas_saldo  mautoservicio  mtarjeta_visa_consumo  mtarjeta_master_consumo  mprestamos_personales  mprestamos_prendarios  mprestamos_hipotecarios  mplazo_fijo_dolares  mplazo_fijo_pesos  minversion1_pesos  minversion1_dolares  minversion2  mpayroll  mpayroll2  mcuenta_debitos_automaticos  mttarjeta_visa_debitos_automaticos  mttarjeta_master_debitos_automaticos  mpagodeservicios  mpagomiscuentas  mcajeros_propios_descuentos  mtarjeta_visa_descuentos  mtarjeta_master_descuentos  mcomisiones_mantenimiento  mcomisiones_otras  mforex_buy  mforex_sell  mtransferencias_recibidas  mtransferencias_emitidas  mextraccion_autoservicio  mcheques_depositados  mcheques_emitidos  mcheques_depositados_rechazados  mcheques_emitidos_rechazados  matm  matm_other  Master_mfinanciacion_limite  Master_msaldototal  Master_msaldopesos  Master_msaldodolares  Master_mconsumospesos  Master_mconsumosdolares  Master_mlimitecompra  Master_madelantopesos  Master_madelantodolares  Master_mpagado  Master_mpagospesos  Master_mpagosdolares  Master_mconsumototal  Master_mpagominimo  Visa_mfinanciacion_limite  Visa_msaldototal  Visa_msaldopesos  Visa_msaldodolares  Visa_mconsumospesos  Visa_mconsumosdolares  Visa_mlimitecompra  Visa_madelantopesos  Visa_madelantodolares  Visa_mpagado  Visa_mpagospesos  Visa_mpagosdolares  Visa_mconsumototal  Visa_mpagominimo  exp_end  nombrewf: 0427-bo-fija-01b 
+         used (Mb) gc trigger (Mb) max used (Mb)
+Ncells 283231 15.2     664251 35.5   451029 24.1
+Vcells 486753  3.8    8388608 64.0  1814487 13.9
+Loading required package: data.table
+Loading required package: yaml
+Loading required package: Rcpp
+Loading required package: ranger
+Loading required package: randomForest
+randomForest 4.7-1.1
+Type rfNews() to see new features/changes/bug fixes.
+
+Attaching package: ‘randomForest’
+
+The following object is masked from ‘package:ranger’:
+
+    importance
+
+Loading required package: lightgbm
+[1] "clase_ternaria"
+exp_end  nombrewf: 0427-bo-fija-01b 
+         used (Mb) gc trigger (Mb) max used (Mb)
+Ncells 283231 15.2     664251 35.5   451029 24.1
+Vcells 486753  3.8    8388608 64.0  1814487 13.9
+Loading required package: data.table
+Loading required package: yaml
+exp_end  nombrewf: 0427-bo-fija-01b 
+         used (Mb) gc trigger (Mb) max used (Mb)
+Ncells 283231 15.2     664251 35.5   451029 24.1
+Vcells 486753  3.8    8388608 64.0  1814487 13.9
+Loading required package: data.table
+Loading required package: rlist
+Loading required package: yaml
+Loading required package: lightgbm
+Loading required package: DiceKriging
+Loading required package: mlrMBO
+Loading required package: mlr
+Loading required package: ParamHelpers
+Warning message: 'mlr' is in 'maintenance-only' mode since July 2019.
+Future development will only happen in 'mlr3'
+(<https://mlr3.mlr-org.com>). Due to the focus on 'mlr3' there might be
+uncaught bugs meanwhile in {mlr} - please consider switching.
+Loading required package: smoof
+Loading required package: checkmate
+
+Attaching package: ‘checkmate’
+
+The following object is masked from ‘package:DiceKriging’:
+
+    checkNames
+
+Error: Assertion failed. One of the following must apply:
+ * checkNumeric(upper): Contains missing values (element 1)
+ * checkClass(upper): Must inherit from class 'expression', but has
+ * class 'numeric'
+In addition: Warning message:
+In parametrizar(PARAM$lgb_param) : NAs introduced by coercion
+No traceback available 
+Error during wrapup: exiting after script error
+Error: no more error handlers available (recursive errors?); invoking 'abort' restart
+Execution halted
+Error in exp_correr_script(param_local) : 
+  Falla catastrofica, ha terminado anormalmente~/labo2024v1///src/workflow-01/z561_HT_lightgbm.r
+No traceback available 
+Error during wrapup: exiting after script error
+Error: no more error handlers available (recursive errors?); invoking 'abort' restart
+> 
+
+-------------------------------------
+
+
