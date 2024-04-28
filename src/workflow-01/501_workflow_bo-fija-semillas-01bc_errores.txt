@@ -357,3 +357,99 @@ Error: no more error handlers available (recursive errors?); invoking 'abort' re
 -------------------------------------
 
 
+> source("~/labo2024v1/src/workflow-01/501_workflow_bo-fija-01b.r")
+nombrewf =  0427-bo-fija-01b 
+         used (Mb) gc trigger (Mb) max used (Mb)
+Ncells 283231 15.2     664251 35.5   451029 24.1
+Vcells 486753  3.8    8388608 64.0  1814487 13.9
+Loading required package: data.table
+Loading required package: yaml
+exp_end  nombrewf: 0427-bo-fija-01b 
+         used (Mb) gc trigger (Mb) max used (Mb)
+Ncells 283231 15.2     664251 35.5   451029 24.1
+Vcells 486753  3.8    8388608 64.0  1814487 13.9
+Loading required package: data.table
+Loading required package: yaml
+exp_end  nombrewf: 0427-bo-fija-01b 
+         used (Mb) gc trigger (Mb) max used (Mb)
+Ncells 283231 15.2     664251 35.5   451029 24.1
+Vcells 486753  3.8    8388608 64.0  1814487 13.9
+Loading required package: data.table
+Loading required package: yaml
+mrentabilidad  mrentabilidad_annual  mcomisiones  mactivos_margen  mpasivos_margen  mcuenta_corriente_adicional  mcuenta_corriente  mcaja_ahorro  mcaja_ahorro_adicional  mcaja_ahorro_dolares  mcuentas_saldo  mautoservicio  mtarjeta_visa_consumo  mtarjeta_master_consumo  mprestamos_personales  mprestamos_prendarios  mprestamos_hipotecarios  mplazo_fijo_dolares  mplazo_fijo_pesos  minversion1_pesos  minversion1_dolares  minversion2  mpayroll  mpayroll2  mcuenta_debitos_automaticos  mttarjeta_visa_debitos_automaticos  mttarjeta_master_debitos_automaticos  mpagodeservicios  mpagomiscuentas  mcajeros_propios_descuentos  mtarjeta_visa_descuentos  mtarjeta_master_descuentos  mcomisiones_mantenimiento  mcomisiones_otras  mforex_buy  mforex_sell  mtransferencias_recibidas  mtransferencias_emitidas  mextraccion_autoservicio  mcheques_depositados  mcheques_emitidos  mcheques_depositados_rechazados  mcheques_emitidos_rechazados  matm  matm_other  Master_mfinanciacion_limite  Master_msaldototal  Master_msaldopesos  Master_msaldodolares  Master_mconsumospesos  Master_mconsumosdolares  Master_mlimitecompra  Master_madelantopesos  Master_madelantodolares  Master_mpagado  Master_mpagospesos  Master_mpagosdolares  Master_mconsumototal  Master_mpagominimo  Visa_mfinanciacion_limite  Visa_msaldototal  Visa_msaldopesos  Visa_msaldodolares  Visa_mconsumospesos  Visa_mconsumosdolares  Visa_mlimitecompra  Visa_madelantopesos  Visa_madelantodolares  Visa_mpagado  Visa_mpagospesos  Visa_mpagosdolares  Visa_mconsumototal  Visa_mpagominimo  exp_end  nombrewf: 0427-bo-fija-01b 
+         used (Mb) gc trigger (Mb) max used (Mb)
+Ncells 283231 15.2     664251 35.5   451029 24.1
+Vcells 486753  3.8    8388608 64.0  1814487 13.9
+Loading required package: data.table
+Loading required package: yaml
+Loading required package: Rcpp
+Loading required package: ranger
+Loading required package: randomForest
+randomForest 4.7-1.1
+Type rfNews() to see new features/changes/bug fixes.
+
+Attaching package: ‘randomForest’
+
+The following object is masked from ‘package:ranger’:
+
+    importance
+
+Loading required package: lightgbm
+[1] "clase_ternaria"
+exp_end  nombrewf: 0427-bo-fija-01b 
+         used (Mb) gc trigger (Mb) max used (Mb)
+Ncells 283231 15.2     664251 35.5   451029 24.1
+Vcells 486753  3.8    8388608 64.0  1814487 13.9
+Loading required package: data.table
+Loading required package: yaml
+exp_end  nombrewf: 0427-bo-fija-01b 
+         used (Mb) gc trigger (Mb) max used (Mb)
+Ncells 283231 15.2     664251 35.5   451029 24.1
+Vcells 486753  3.8    8388608 64.0  1814487 13.9
+Loading required package: data.table
+Loading required package: rlist
+Loading required package: yaml
+Loading required package: lightgbm
+Loading required package: DiceKriging
+Loading required package: mlrMBO
+Loading required package: mlr
+Loading required package: ParamHelpers
+Warning message: 'mlr' is in 'maintenance-only' mode since July 2019.
+Future development will only happen in 'mlr3'
+(<https://mlr3.mlr-org.com>). Due to the focus on 'mlr3' there might be
+uncaught bugs meanwhile in {mlr} - please consider switching.
+Loading required package: smoof
+Loading required package: checkmate
+
+Attaching package: ‘checkmate’
+
+The following object is masked from ‘package:DiceKriging’:
+
+    checkNames
+
+            used   (Mb) gc trigger   (Mb)  max used   (Mb)
+Ncells   2053816  109.7    3979364  212.6   2564820  137.0
+Vcells 343155683 2618.1  916142374 6989.7 763380954 5824.2
+Warning in generateDesign(n.params * 4L, par.set, fun = lhs::maximinLHS) :
+  generateDesign could only produce 1 points instead of 8!
+Computing y column(s) for design. Not provided.
+Validate  1     400    -2314844     32490945    
+20240428 031030	455	457595	gbdt	binary	custom	TRUE	TRUE	FALSE	TRUE	-100	-1	0	0.001	0	0	31	1	1	1	1	FALSE	1	0.1	50	0.5	FALSE	1	0.8	200003	512	200	14191	52935545.7271364	1
+20240428 031032	455	457595	gbdt	binary	custom	TRUE	TRUE	FALSE	TRUE	-100	-1	0	0.001	0	0	31	1	1	1	1	FALSE	1	0.1	50	0.5	FALSE	1	0.8	200003	512	200	14191	52935545.7271364	1
+[mbo] 0: num_leaves=512; min_data_in_leaf=200 : y = 5.29e+07 : 56.4 secs : initdesign
+Error in validObject(model, complete = TRUE) : 
+  invalid class “km” object: the number of experiments must be larger than the spatial dimension
+Calls: mbo ... trainLearner.regr.km -> do.call -> <Anonymous> -> validObject
+Error during wrapup: exiting after script error
+Error: no more error handlers available (recursive errors?); invoking 'abort' restart
+Execution halted
+Error in exp_correr_script(param_local) : 
+  Falla catastrofica, ha terminado anormalmente~/labo2024v1///src/workflow-01/z561_HT_lightgbm.r
+No traceback available 
+Error during wrapup: exiting after script error
+Error: no more error handlers available (recursive errors?); invoking 'abort' restart
+> 
+
+
+--------------------------------------------------
+

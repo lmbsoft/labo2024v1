@@ -270,10 +270,10 @@ HT_tuning_guantesblancos <- function( pmyexp, pinputexps, pserver="local")
 
     extra_trees = FALSE,
     # Hiperparámetros fijos
-    learning_rate = c( 1 ),
-    feature_fraction = c( 0.8 ),
-    num_leaves = c( 512L, 512L, "integer" ),
-    min_data_in_leaf = c( 200L, 200L, "integer" )
+    learning_rate = c( 0.99, 1 ),
+    feature_fraction = c( 0.8, 0.9 ),
+    num_leaves = c( 512L, 513L, "integer" ),
+    min_data_in_leaf = c( 200L, 201L, "integer" )
   )
 
 
