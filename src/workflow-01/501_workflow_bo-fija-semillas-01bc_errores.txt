@@ -452,4 +452,254 @@ Error: no more error handlers available (recursive errors?); invoking 'abort' re
 
 
 --------------------------------------------------
+> source("~/labo2024v1/src/workflow-01/501_workflow_bo-fija-01b.r")
+nombrewf =  0427-bo-fija-01b 
+         used (Mb) gc trigger (Mb) max used (Mb)
+Ncells 283231 15.2     664251 35.5   451029 24.1
+Vcells 486753  3.8    8388608 64.0  1814487 13.9
+Loading required package: data.table
+Loading required package: yaml
+exp_end  nombrewf: 0427-bo-fija-01b 
+         used (Mb) gc trigger (Mb) max used (Mb)
+Ncells 283231 15.2     664251 35.5   451029 24.1
+Vcells 486753  3.8    8388608 64.0  1814487 13.9
+Loading required package: data.table
+Loading required package: yaml
+exp_end  nombrewf: 0427-bo-fija-01b 
+         used (Mb) gc trigger (Mb) max used (Mb)
+Ncells 283231 15.2     664251 35.5   451029 24.1
+Vcells 486753  3.8    8388608 64.0  1814487 13.9
+Loading required package: data.table
+Loading required package: yaml
+mrentabilidad  mrentabilidad_annual  mcomisiones  mactivos_margen  mpasivos_margen  mcuenta_corriente_adicional  mcuenta_corriente  mcaja_ahorro  mcaja_ahorro_adicional  mcaja_ahorro_dolares  mcuentas_saldo  mautoservicio  mtarjeta_visa_consumo  mtarjeta_master_consumo  mprestamos_personales  mprestamos_prendarios  mprestamos_hipotecarios  mplazo_fijo_dolares  mplazo_fijo_pesos  minversion1_pesos  minversion1_dolares  minversion2  mpayroll  mpayroll2  mcuenta_debitos_automaticos  mttarjeta_visa_debitos_automaticos  mttarjeta_master_debitos_automaticos  mpagodeservicios  mpagomiscuentas  mcajeros_propios_descuentos  mtarjeta_visa_descuentos  mtarjeta_master_descuentos  mcomisiones_mantenimiento  mcomisiones_otras  mforex_buy  mforex_sell  mtransferencias_recibidas  mtransferencias_emitidas  mextraccion_autoservicio  mcheques_depositados  mcheques_emitidos  mcheques_depositados_rechazados  mcheques_emitidos_rechazados  matm  matm_other  Master_mfinanciacion_limite  Master_msaldototal  Master_msaldopesos  Master_msaldodolares  Master_mconsumospesos  Master_mconsumosdolares  Master_mlimitecompra  Master_madelantopesos  Master_madelantodolares  Master_mpagado  Master_mpagospesos  Master_mpagosdolares  Master_mconsumototal  Master_mpagominimo  Visa_mfinanciacion_limite  Visa_msaldototal  Visa_msaldopesos  Visa_msaldodolares  Visa_mconsumospesos  Visa_mconsumosdolares  Visa_mlimitecompra  Visa_madelantopesos  Visa_madelantodolares  Visa_mpagado  Visa_mpagospesos  Visa_mpagosdolares  Visa_mconsumototal  Visa_mpagominimo  exp_end  nombrewf: 0427-bo-fija-01b 
+         used (Mb) gc trigger (Mb) max used (Mb)
+Ncells 283231 15.2     664251 35.5   451029 24.1
+Vcells 486753  3.8    8388608 64.0  1814487 13.9
+Loading required package: data.table
+Loading required package: yaml
+Loading required package: Rcpp
+Loading required package: ranger
+Loading required package: randomForest
+randomForest 4.7-1.1
+Type rfNews() to see new features/changes/bug fixes.
 
+Attaching package: ‘randomForest’
+
+The following object is masked from ‘package:ranger’:
+
+    importance
+
+Loading required package: lightgbm
+[1] "clase_ternaria"
+exp_end  nombrewf: 0427-bo-fija-01b 
+         used (Mb) gc trigger (Mb) max used (Mb)
+Ncells 283231 15.2     664251 35.5   451029 24.1
+Vcells 486753  3.8    8388608 64.0  1814487 13.9
+Loading required package: data.table
+Loading required package: yaml
+exp_end  nombrewf: 0427-bo-fija-01b 
+         used (Mb) gc trigger (Mb) max used (Mb)
+Ncells 283231 15.2     664251 35.5   451029 24.1
+Vcells 486753  3.8    8388608 64.0  1814487 13.9
+Loading required package: data.table
+Loading required package: rlist
+Loading required package: yaml
+Loading required package: lightgbm
+Loading required package: DiceKriging
+Loading required package: mlrMBO
+Loading required package: mlr
+Loading required package: ParamHelpers
+Warning message: 'mlr' is in 'maintenance-only' mode since July 2019.
+Future development will only happen in 'mlr3'
+(<https://mlr3.mlr-org.com>). Due to the focus on 'mlr3' there might be
+uncaught bugs meanwhile in {mlr} - please consider switching.
+Loading required package: smoof
+Loading required package: checkmate
+
+Attaching package: ‘checkmate’
+
+The following object is masked from ‘package:DiceKriging’:
+
+    checkNames
+
+            used   (Mb) gc trigger   (Mb)  max used   (Mb)
+Ncells   2053833  109.7    3979412  212.6   2564820  137.0
+Vcells 343155753 2618.1  916142475 6989.7 763381024 5824.2
+Computing y column(s) for design. Not provided.
+Validate  1     400    10902559     34105241    
+20240428 033650	455	457595	gbdt	binary	custom	TRUE	TRUE	FALSE	TRUE	-100	-1	0	0.001	0	0	31	1	1	1	1	FALSE	1	0.1	50	0.5	FALSE	200003	0.99406715375714	0.847481219309229	512	201	12823	54829890.5547226	1
+20240428 033652	455	457595	gbdt	binary	custom	TRUE	TRUE	FALSE	TRUE	-100	-1	0	0.001	0	0	31	1	1	1	1	FALSE	1	0.1	50	0.5	FALSE	200003	0.99406715375714	0.847481219309229	512	201	12823	54829890.5547226	1
+Validate  2     400    22205223     33144618    
+20240428 033739	455	457595	gbdt	binary	custom	TRUE	TRUE	FALSE	TRUE	-100	-1	0	0.001	0	0	31	1	1	1	1	FALSE	1	0.1	50	0.5	FALSE	200003	0.994727586459098	0.861591605555104	512	201	12823	54829890.5547226	2
+Validate  3     400    22587693     34258961    
+20240428 033826	455	457595	gbdt	binary	custom	TRUE	TRUE	FALSE	TRUE	-100	-1	0	0.001	0	0	31	1	1	1	1	FALSE	1	0.1	50	0.5	FALSE	200003	0.996970875737156	0.884322598614753	513	200	12841	54813671.6641679	3
+Validate  4     400    -1332415     34087297    
+20240428 033915	455	457595	gbdt	binary	custom	TRUE	TRUE	FALSE	TRUE	-100	-1	0	0.001	0	0	31	1	1	1	1	FALSE	1	0.1	50	0.5	FALSE	200003	0.996442180605803	0.838369343842979	512	201	13366	55603529.2353823	4
+20240428 033917	455	457595	gbdt	binary	custom	TRUE	TRUE	FALSE	TRUE	-100	-1	0	0.001	0	0	31	1	1	1	1	FALSE	1	0.1	50	0.5	FALSE	200003	0.996442180605803	0.838369343842979	512	201	13366	55603529.2353823	4
+Validate  5     400    23230709     30280064    
+20240428 034002	455	457595	gbdt	binary	custom	TRUE	TRUE	FALSE	TRUE	-100	-1	0	0.001	0	0	31	1	1	1	1	FALSE	1	0.1	50	0.5	FALSE	200003	0.998470673904091	0.864926477543127	512	200	12823	54829890.5547226	5
+Validate  6     400    18006093     31464049    
+20240428 034051	455	457595	gbdt	binary	custom	TRUE	TRUE	FALSE	TRUE	-100	-1	0	0.001	0	0	31	1	1	1	1	FALSE	1	0.1	50	0.5	FALSE	200003	0.992065597001409	0.872371650694591	513	200	12823	54829890.5547226	6
+Validate  7     400    20624748     35155207    
+20240428 034141	455	457595	gbdt	binary	custom	TRUE	TRUE	FALSE	TRUE	-100	-1	0	0.001	0	0	31	1	1	1	1	FALSE	1	0.1	50	0.5	FALSE	200003	0.999274466382273	0.819618825010423	512	201	13382	55915529.2353823	7
+20240428 034143	455	457595	gbdt	binary	custom	TRUE	TRUE	FALSE	TRUE	-100	-1	0	0.001	0	0	31	1	1	1	1	FALSE	1	0.1	50	0.5	FALSE	200003	0.999274466382273	0.819618825010423	512	201	13382	55915529.2353823	7
+Validate  8     400    21876541     31941669    
+20240428 034230	455	457595	gbdt	binary	custom	TRUE	TRUE	FALSE	TRUE	-100	-1	0	0.001	0	0	31	1	1	1	1	FALSE	1	0.1	50	0.5	FALSE	200003	0.990345041440717	0.87854583191657	513	200	12823	54829890.5547226	8
+Validate  9     400    13290324     29734043    
+20240428 034317	455	457595	gbdt	binary	custom	TRUE	TRUE	FALSE	TRUE	-100	-1	0	0.001	0	0	31	1	1	1	1	FALSE	1	0.1	50	0.5	FALSE	200003	0.990784944691438	0.825751789825182	513	201	13382	55915529.2353823	9
+Validate  10     400    -145508.2     28995882    
+20240428 034404	455	457595	gbdt	binary	custom	TRUE	TRUE	FALSE	TRUE	-100	-1	0	0.001	0	0	31	1	1	1	1	FALSE	1	0.1	50	0.5	FALSE	200003	0.992721009959867	0.80105024225188	513	200	13895	52340427.2863568	10
+Validate  11     400    13885489     30794894    
+20240428 034451	455	457595	gbdt	binary	custom	TRUE	TRUE	FALSE	TRUE	-100	-1	0	0.001	0	0	31	1	1	1	1	FALSE	1	0.1	50	0.5	FALSE	200003	0.995672262311233	0.81332744729958	512	200	13327	56048685.1574213	11
+20240428 034453	455	457595	gbdt	binary	custom	TRUE	TRUE	FALSE	TRUE	-100	-1	0	0.001	0	0	31	1	1	1	1	FALSE	1	0.1	50	0.5	FALSE	200003	0.995672262311233	0.81332744729958	512	200	13327	56048685.1574213	11
+Validate  12     400    9092718     31147166     
+20240428 034540	455	457595	gbdt	binary	custom	TRUE	TRUE	FALSE	TRUE	-100	-1	0	0.001	0	0	31	1	1	1	1	FALSE	1	0.1	50	0.5	FALSE	200003	0.993277878100908	0.892518211640718	513	201	12841	54844436.2818591	12
+Validate  13     400    8249726     31155045     
+20240428 034627	455	457595	gbdt	binary	custom	TRUE	TRUE	FALSE	TRUE	-100	-1	0	0.001	0	0	31	1	1	1	1	FALSE	1	0.1	50	0.5	FALSE	200003	0.995016789568994	0.898034741817677	512	200	12841	54813671.6641679	13
+Validate  14     400    -408370.3     30563502    
+20240428 034714	455	457595	gbdt	binary	custom	TRUE	TRUE	FALSE	TRUE	-100	-1	0	0.001	0	0	31	1	1	1	1	FALSE	1	0.1	50	0.5	FALSE	200003	0.9994080918032	0.811288107181708	513	201	13365	55934685.1574213	14
+Validate  15     400    -295473.8     36128820    
+20240428 034801	455	457595	gbdt	binary	custom	TRUE	TRUE	FALSE	TRUE	-100	-1	0	0.001	0	0	31	1	1	1	1	FALSE	1	0.1	50	0.5	FALSE	200003	0.991752571274447	0.833352195724672	512	201	13366	55603529.2353823	15
+Validate  16     400    4305546     30532916     
+20240428 034847	455	457595	gbdt	binary	custom	TRUE	TRUE	FALSE	TRUE	-100	-1	0	0.001	0	0	31	1	1	1	1	FALSE	1	0.1	50	0.5	FALSE	200003	0.997614894204196	0.854478699859539	513	200	12823	54829890.5547226	16
+[mbo] 0: learning_rate=0.994; feature_fraction=0.847; num_leaves=512; min_data_in_leaf=201 : y = 5.48e+07 : 57.0 secs : initdesign
+[mbo] 0: learning_rate=0.995; feature_fraction=0.862; num_leaves=512; min_data_in_leaf=201 : y = 5.48e+07 : 46.4 secs : initdesign
+[mbo] 0: learning_rate=0.997; feature_fraction=0.884; num_leaves=513; min_data_in_leaf=200 : y = 5.48e+07 : 47.7 secs : initdesign
+[mbo] 0: learning_rate=0.996; feature_fraction=0.838; num_leaves=512; min_data_in_leaf=201 : y = 5.56e+07 : 50.1 secs : initdesign
+[mbo] 0: learning_rate=0.998; feature_fraction=0.865; num_leaves=512; min_data_in_leaf=200 : y = 5.48e+07 : 46.0 secs : initdesign
+[mbo] 0: learning_rate=0.992; feature_fraction=0.872; num_leaves=513; min_data_in_leaf=200 : y = 5.48e+07 : 48.1 secs : initdesign
+[mbo] 0: learning_rate=0.999; feature_fraction=0.82; num_leaves=512; min_data_in_leaf=201 : y = 5.59e+07 : 52.2 secs : initdesign
+[mbo] 0: learning_rate=0.99; feature_fraction=0.879; num_leaves=513; min_data_in_leaf=200 : y = 5.48e+07 : 47.1 secs : initdesign
+[mbo] 0: learning_rate=0.991; feature_fraction=0.826; num_leaves=513; min_data_in_leaf=201 : y = 5.59e+07 : 47.9 secs : initdesign
+[mbo] 0: learning_rate=0.993; feature_fraction=0.801; num_leaves=513; min_data_in_leaf=200 : y = 5.23e+07 : 46.6 secs : initdesign
+[mbo] 0: learning_rate=0.996; feature_fraction=0.813; num_leaves=512; min_data_in_leaf=200 : y = 5.6e+07 : 48.2 secs : initdesign
+[mbo] 0: learning_rate=0.993; feature_fraction=0.893; num_leaves=513; min_data_in_leaf=201 : y = 5.48e+07 : 47.1 secs : initdesign
+[mbo] 0: learning_rate=0.995; feature_fraction=0.898; num_leaves=512; min_data_in_leaf=200 : y = 5.48e+07 : 47.5 secs : initdesign
+[mbo] 0: learning_rate=0.999; feature_fraction=0.811; num_leaves=513; min_data_in_leaf=201 : y = 5.59e+07 : 46.6 secs : initdesign
+[mbo] 0: learning_rate=0.992; feature_fraction=0.833; num_leaves=512; min_data_in_leaf=201 : y = 5.56e+07 : 46.6 secs : initdesign
+[mbo] 0: learning_rate=0.998; feature_fraction=0.854; num_leaves=513; min_data_in_leaf=200 : y = 5.48e+07 : 46.9 secs : initdesign
+Saved the current state after iteration 1 in the file bayesiana.RDATA.
+Validate  17     400    20067661     35875781    
+20240428 034938	455	457595	gbdt	binary	custom	TRUE	TRUE	FALSE	TRUE	-100	-1	0	0.001	0	0	31	1	1	1	1	FALSE	1	0.1	50	0.5	FALSE	200003	0.990021414745368	0.800003616304508	512	200	13895	52340427.2863568	17
+[mbo] 1: learning_rate=0.99; feature_fraction=0.8; num_leaves=512; min_data_in_leaf=200 : y = 5.23e+07 : 47.9 secs : infill_ei
+Validate  18     400    712596.7     30418382    
+20240428 035024	455	457595	gbdt	binary	custom	TRUE	TRUE	FALSE	TRUE	-100	-1	0	0.001	0	0	31	1	1	1	1	FALSE	1	0.1	50	0.5	FALSE	200003	0.996920489440289	0.81559653750418	513	201	13365	55934685.1574213	18
+[mbo] 2: learning_rate=0.997; feature_fraction=0.816; num_leaves=513; min_data_in_leaf=201 : y = 5.59e+07 : 46.3 secs : infill_ei
+Saved the final state in the file bayesiana.RDATA
+exp_end  nombrewf: 0427-bo-fija-01b 
+         used (Mb) gc trigger (Mb) max used (Mb)
+Ncells 283231 15.2     664251 35.5   451029 24.1
+Vcells 486753  3.8    8388608 64.0  1814487 13.9
+Loading required package: data.table
+Loading required package: yaml
+Loading required package: primes
+Loading required package: lightgbm
+
+modelo_rank:  1 , semillas: 1  2  3  4  5  exp_end  nombrewf: 0427-bo-fija-01b 
+         used (Mb) gc trigger (Mb) max used (Mb)
+Ncells 283231 15.2     664251 35.5   451029 24.1
+Vcells 486753  3.8    8388608 64.0  1814487 13.9
+Loading required package: data.table
+Loading required package: yaml
+exp_end  nombrewf: 0427-bo-fija-02b 
+         used (Mb) gc trigger (Mb) max used (Mb)
+Ncells 283231 15.2     664251 35.5   451029 24.1
+Vcells 486753  3.8    8388608 64.0  1814487 13.9
+Loading required package: data.table
+Loading required package: rlist
+Loading required package: yaml
+Loading required package: lightgbm
+Loading required package: DiceKriging
+Loading required package: mlrMBO
+Loading required package: mlr
+Loading required package: ParamHelpers
+Warning message: 'mlr' is in 'maintenance-only' mode since July 2019.
+Future development will only happen in 'mlr3'
+(<https://mlr3.mlr-org.com>). Due to the focus on 'mlr3' there might be
+uncaught bugs meanwhile in {mlr} - please consider switching.
+Loading required package: smoof
+Loading required package: checkmate
+
+Attaching package: ‘checkmate’
+
+The following object is masked from ‘package:DiceKriging’:
+
+    checkNames
+
+            used   (Mb) gc trigger   (Mb)  max used   (Mb)
+Ncells   2053833  109.7    3979397  212.6   2564852  137.0
+Vcells 325893101 2486.4  855976226 6530.6 713210331 5441.4
+Computing y column(s) for design. Not provided.
+Validate  1     400    1977.511     32811543    
+20240428 041106	455	421178	gbdt	binary	custom	TRUE	TRUE	FALSE	TRUE	-100	-1	0	0.001	0	0	31	1	1	1	1	FALSE	1	0.1	50	0.5	FALSE	200003	0.99406715375714	0.847481219309229	512	201	7615	22138808.095952	1
+20240428 041108	455	421178	gbdt	binary	custom	TRUE	TRUE	FALSE	TRUE	-100	-1	0	0.001	0	0	31	1	1	1	1	FALSE	1	0.1	50	0.5	FALSE	200003	0.99406715375714	0.847481219309229	512	201	7615	22138808.095952	1
+Validate  2     400    26506591     33608331    
+20240428 041152	455	421178	gbdt	binary	custom	TRUE	TRUE	FALSE	TRUE	-100	-1	0	0.001	0	0	31	1	1	1	1	FALSE	1	0.1	50	0.5	FALSE	200003	0.994727586459098	0.861591605555104	512	201	7615	22138808.095952	2
+Validate  3     400    22890604     32047745    
+20240428 041236	455	421178	gbdt	binary	custom	TRUE	TRUE	FALSE	TRUE	-100	-1	0	0.001	0	0	31	1	1	1	1	FALSE	1	0.1	50	0.5	FALSE	200003	0.996970875737156	0.884322598614753	513	200	7578	22171727.1364318	3
+20240428 041238	455	421178	gbdt	binary	custom	TRUE	TRUE	FALSE	TRUE	-100	-1	0	0.001	0	0	31	1	1	1	1	FALSE	1	0.1	50	0.5	FALSE	200003	0.996970875737156	0.884322598614753	513	200	7578	22171727.1364318	3
+Validate  4     400    27582823     32941412    
+20240428 041323	455	421178	gbdt	binary	custom	TRUE	TRUE	FALSE	TRUE	-100	-1	0	0.001	0	0	31	1	1	1	1	FALSE	1	0.1	50	0.5	FALSE	200003	0.996442180605803	0.838369343842979	512	201	7389	21632340.3298351	4
+Validate  5     400    4448819     36512525     
+20240428 041408	455	421178	gbdt	binary	custom	TRUE	TRUE	FALSE	TRUE	-100	-1	0	0.001	0	0	31	1	1	1	1	FALSE	1	0.1	50	0.5	FALSE	200003	0.998470673904091	0.864926477543127	512	200	7615	22138808.095952	5
+Validate  6     400    15295499     31241736    
+20240428 041451	455	421178	gbdt	binary	custom	TRUE	TRUE	FALSE	TRUE	-100	-1	0	0.001	0	0	31	1	1	1	1	FALSE	1	0.1	50	0.5	FALSE	200003	0.992065597001409	0.872371650694591	513	200	7615	22138808.095952	6
+Validate  7     400    -1695654     31537343    
+20240428 041536	455	421178	gbdt	binary	custom	TRUE	TRUE	FALSE	TRUE	-100	-1	0	0.001	0	0	31	1	1	1	1	FALSE	1	0.1	50	0.5	FALSE	200003	0.999274466382273	0.819618825010423	512	201	7389	21632340.3298351	7
+Validate  8     400    25253552     30611226    
+20240428 041621	455	421178	gbdt	binary	custom	TRUE	TRUE	FALSE	TRUE	-100	-1	0	0.001	0	0	31	1	1	1	1	FALSE	1	0.1	50	0.5	FALSE	200003	0.990345041440717	0.87854583191657	513	200	7578	22171727.1364318	8
+Validate  9     400    21456861     29175987    
+20240428 041705	455	421178	gbdt	binary	custom	TRUE	TRUE	FALSE	TRUE	-100	-1	0	0.001	0	0	31	1	1	1	1	FALSE	1	0.1	50	0.5	FALSE	200003	0.990784944691438	0.825751789825182	513	201	7389	21632340.3298351	9
+Validate  10     400    7521454     32481541     
+20240428 041750	455	421178	gbdt	binary	custom	TRUE	TRUE	FALSE	TRUE	-100	-1	0	0.001	0	0	31	1	1	1	1	FALSE	1	0.1	50	0.5	FALSE	200003	0.992721009959867	0.80105024225188	513	200	6399	22250616.191904	10
+20240428 041751	455	421178	gbdt	binary	custom	TRUE	TRUE	FALSE	TRUE	-100	-1	0	0.001	0	0	31	1	1	1	1	FALSE	1	0.1	50	0.5	FALSE	200003	0.992721009959867	0.80105024225188	513	200	6399	22250616.191904	10
+Validate  11     400    10109948     30379054    
+20240428 041837	455	421178	gbdt	binary	custom	TRUE	TRUE	FALSE	TRUE	-100	-1	0	0.001	0	0	31	1	1	1	1	FALSE	1	0.1	50	0.5	FALSE	200003	0.995672262311233	0.81332744729958	512	200	7340	21574062.9685157	11
+Validate  12     400    6815952     29830318     
+20240428 041923	455	421178	gbdt	binary	custom	TRUE	TRUE	FALSE	TRUE	-100	-1	0	0.001	0	0	31	1	1	1	1	FALSE	1	0.1	50	0.5	FALSE	200003	0.993277878100908	0.892518211640718	513	201	7578	22171727.1364318	12
+Validate  13     400    14663585     34286294    
+20240428 042007	455	421178	gbdt	binary	custom	TRUE	TRUE	FALSE	TRUE	-100	-1	0	0.001	0	0	31	1	1	1	1	FALSE	1	0.1	50	0.5	FALSE	200003	0.995016789568994	0.898034741817677	512	200	7578	22171727.1364318	13
+Validate  14     400    4357877     30265799     
+20240428 042052	455	421178	gbdt	binary	custom	TRUE	TRUE	FALSE	TRUE	-100	-1	0	0.001	0	0	31	1	1	1	1	FALSE	1	0.1	50	0.5	FALSE	200003	0.9994080918032	0.811288107181708	513	201	7294	21582287.856072	14
+Validate  15     400    18677751     32219931    
+20240428 042137	455	421178	gbdt	binary	custom	TRUE	TRUE	FALSE	TRUE	-100	-1	0	0.001	0	0	31	1	1	1	1	FALSE	1	0.1	50	0.5	FALSE	200003	0.991752571274447	0.833352195724672	512	201	7389	21632340.3298351	15
+Validate  16     400    25106516     30974409    
+20240428 042221	455	421178	gbdt	binary	custom	TRUE	TRUE	FALSE	TRUE	-100	-1	0	0.001	0	0	31	1	1	1	1	FALSE	1	0.1	50	0.5	FALSE	200003	0.997614894204196	0.854478699859539	513	200	7615	22138808.095952	16
+[mbo] 0: learning_rate=0.994; feature_fraction=0.847; num_leaves=512; min_data_in_leaf=201 : y = 2.21e+07 : 54.8 secs : initdesign
+[mbo] 0: learning_rate=0.995; feature_fraction=0.862; num_leaves=512; min_data_in_leaf=201 : y = 2.21e+07 : 44.0 secs : initdesign
+[mbo] 0: learning_rate=0.997; feature_fraction=0.884; num_leaves=513; min_data_in_leaf=200 : y = 2.22e+07 : 45.9 secs : initdesign
+[mbo] 0: learning_rate=0.996; feature_fraction=0.838; num_leaves=512; min_data_in_leaf=201 : y = 2.16e+07 : 45.5 secs : initdesign
+[mbo] 0: learning_rate=0.998; feature_fraction=0.865; num_leaves=512; min_data_in_leaf=200 : y = 2.21e+07 : 44.1 secs : initdesign
+[mbo] 0: learning_rate=0.992; feature_fraction=0.872; num_leaves=513; min_data_in_leaf=200 : y = 2.21e+07 : 43.9 secs : initdesign
+[mbo] 0: learning_rate=0.999; feature_fraction=0.82; num_leaves=512; min_data_in_leaf=201 : y = 2.16e+07 : 44.8 secs : initdesign
+[mbo] 0: learning_rate=0.99; feature_fraction=0.879; num_leaves=513; min_data_in_leaf=200 : y = 2.22e+07 : 44.4 secs : initdesign
+[mbo] 0: learning_rate=0.991; feature_fraction=0.826; num_leaves=513; min_data_in_leaf=201 : y = 2.16e+07 : 44.2 secs : initdesign
+[mbo] 0: learning_rate=0.993; feature_fraction=0.801; num_leaves=513; min_data_in_leaf=200 : y = 2.23e+07 : 46.4 secs : initdesign
+[mbo] 0: learning_rate=0.996; feature_fraction=0.813; num_leaves=512; min_data_in_leaf=200 : y = 2.16e+07 : 46.1 secs : initdesign
+[mbo] 0: learning_rate=0.993; feature_fraction=0.893; num_leaves=513; min_data_in_leaf=201 : y = 2.22e+07 : 45.9 secs : initdesign
+[mbo] 0: learning_rate=0.995; feature_fraction=0.898; num_leaves=512; min_data_in_leaf=200 : y = 2.22e+07 : 43.8 secs : initdesign
+[mbo] 0: learning_rate=0.999; feature_fraction=0.811; num_leaves=513; min_data_in_leaf=201 : y = 2.16e+07 : 45.0 secs : initdesign
+[mbo] 0: learning_rate=0.992; feature_fraction=0.833; num_leaves=512; min_data_in_leaf=201 : y = 2.16e+07 : 44.4 secs : initdesign
+[mbo] 0: learning_rate=0.998; feature_fraction=0.854; num_leaves=513; min_data_in_leaf=200 : y = 2.21e+07 : 44.6 secs : initdesign
+Saved the current state after iteration 1 in the file bayesiana.RDATA.
+Validate  17     400    16003291     33205097    
+20240428 042308	455	421178	gbdt	binary	custom	TRUE	TRUE	FALSE	TRUE	-100	-1	0	0.001	0	0	31	1	1	1	1	FALSE	1	0.1	50	0.5	FALSE	200003	0.990034861538862	0.800002935842474	513	200	6399	22250616.191904	17
+[mbo] 1: learning_rate=0.99; feature_fraction=0.8; num_leaves=513; min_data_in_leaf=200 : y = 2.23e+07 : 44.5 secs : infill_ei
+Validate  18     400    23511223     31931684    
+20240428 042353	455	421178	gbdt	binary	custom	TRUE	TRUE	FALSE	TRUE	-100	-1	0	0.001	0	0	31	1	1	1	1	FALSE	1	0.1	50	0.5	FALSE	200003	0.990004804671395	0.888873594735982	512	200	7578	22171727.1364318	18
+[mbo] 2: learning_rate=0.99; feature_fraction=0.889; num_leaves=512; min_data_in_leaf=200 : y = 2.22e+07 : 45.3 secs : infill_ei
+Saved the final state in the file bayesiana.RDATA
+exp_end  nombrewf: 0427-bo-fija-02b 
+         used (Mb) gc trigger (Mb) max used (Mb)
+Ncells 283231 15.2     664251 35.5   451029 24.1
+Vcells 486753  3.8    8388608 64.0  1814487 13.9
+Loading required package: data.table
+Loading required package: yaml
+Loading required package: primes
+Loading required package: lightgbm
+
+modelo_rank:  1 , semillas: 1  2  3  4  5  exp_end  nombrewf: 0427-bo-fija-02b 
+> 
+> 
+> -----------------------------------------------------------------------------
++ 
