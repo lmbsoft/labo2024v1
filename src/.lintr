@@ -10,6 +10,7 @@ linters: linters_with_defaults(
     object_usage_linter = NULL,
     spaces_left_parentheses_linter = NULL,
     infix_spaces_linter = NULL,
-    commas_linter = NULL
+    commas_linter = NULL,
+    object_length_linter = NULL
   )
   
