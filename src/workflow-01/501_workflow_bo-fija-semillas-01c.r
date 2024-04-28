@@ -232,7 +232,7 @@ HT_tuning_guantesblancos <- function( pmyexp, pinputexps, pserver="local")
 {
   if( -1 == (param_local <- exp_init( pmyexp, pinputexps, pserver ))$resultado ) return( 0 )# linea fija
 
-  param_local$meta$script <- "/src/workflow-01/z561_HT_lightgbm.r"
+  param_local$meta$script <- "/src/workflow-01/561_HT_lightgbm.r"
 
   # En caso que se haga cross validation, se usa esta cantidad de folds
   param_local$lgb_crossvalidation_folds <- 5
@@ -270,15 +270,15 @@ HT_tuning_guantesblancos <- function( pmyexp, pinputexps, pserver="local")
 
     extra_trees = FALSE,
     # Hiperparámetros fijos
-    learning_rate = 1,
-    feature_fraction = 0.8,
-    num_leaves = 512L,
-    min_data_in_leaf = 200L
+    learning_rate = c( 0.99, 1 ),
+    feature_fraction = c( 0.8, 0.9 ),
+    num_leaves = c( 512L, 513L, "integer" ),
+    min_data_in_leaf = c( 200L, 201L, "integer" )
   )
 
 
   # una Beyesian de Guantes Blancos, solo hace 1 iteración
-  param_local$bo_iteraciones <- 1 # iteraciones de la Optimizacion Bayesiana
+  param_local$bo_iteraciones <- 2 # iteraciones de la Optimizacion Bayesiana
 
   return( exp_correr_script( param_local ) ) # linea fija
 }
