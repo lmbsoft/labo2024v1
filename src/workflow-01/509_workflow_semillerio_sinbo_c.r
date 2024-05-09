@@ -329,10 +329,10 @@ corrida_baseline_semillerio_202109 <- function( pnombrewf, pvirgen=FALSE )
 #
   #TS_strategy_baseline_202109( "TS0001-sem", "FE0001-sem" )
 
-  HT_tuning_baseline( "HT0001-sem-01c", "TS0001-sem" )
+  HT_tuning_baseline( "HT0001-sem-01c1", "TS0001-sem" )
 
   # El ZZ depente de HT y TS
-  ZZ_final_semillerio_baseline( "ZZ0001-sem-01c", c("HT0001-sem-01c","TS0001-sem") )
+  ZZ_final_semillerio_baseline( "ZZ0001-sem-01c1", c("HT0001-sem-01c1","TS0001-sem") )
 
 
   exp_wf_end( pnombrewf, pvirgen ) # linea fija
@@ -357,10 +357,10 @@ corrida_baseline_semillerio_202107 <- function( pnombrewf, pvirgen=FALSE )
 #
   #TS_strategy_baseline_202107( "TS0002-sem", "FE0001-sem" )
 
-  HT_tuning_baseline( "HT0002-sem-02c", "TS0002-sem" )
+  HT_tuning_baseline( "HT0002-sem-02c1", "TS0002-sem" )
 
   # El ZZ depente de HT y TS
-  ZZ_final_semillerio_baseline( "ZZ0002-sem-02c", c("HT0002-sem-02c","TS0002-sem") )
+  ZZ_final_semillerio_baseline( "ZZ0002-sem-02c1", c("HT0002-sem-02c1","TS0002-sem") )
 
 
   exp_wf_end( pnombrewf, pvirgen ) # linea fija
@@ -371,12 +371,12 @@ corrida_baseline_semillerio_202107 <- function( pnombrewf, pvirgen=FALSE )
 #Aqui empieza el programa
 
 
-corrida_baseline_semillerio_202109( "basem01-c" )
+corrida_baseline_semillerio_202109( "basem01-c1" )
 
 
 # Luego partiendo de  FE0001
 # genero TS0002, HT0002 y ZZ0002
 
-corrida_baseline_semillerio_202107( "basem02-c" )
+corrida_baseline_semillerio_202107( "basem02-c1" )
 
  
