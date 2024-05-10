@@ -310,7 +310,7 @@ ZZ_final_semillerio_baseline <- function( pmyexp, pinputexps,hiperparametros, ps
   #param_local$semillerio <- 20
   #pongo 5 semillas por velocidad, luego ver de parametrizar
   #derminar con un test de wilcox cuál sería el número mínimo para mantener el poder predictivo
-  param_local$semillerio <- 5
+  param_local$semillerio <- 2 #5 
 
   return( exp_correr_script( param_local ) ) # linea fija
 }
