@@ -296,6 +296,9 @@ ZZ_final_semillerio_baseline <- function( pmyexp, pinputexps,hiperparametros, ps
 
   param_local$hiperparametros <- hiperparametros
 
+  print("hiperparametros")
+  print(hiperparametros)
+
   param_local$kaggle$envios_desde <-  9500L
   param_local$kaggle$envios_hasta <- 11500L
   param_local$kaggle$envios_salto <-   500L
@@ -344,7 +347,7 @@ corrida_baseline_semillerio_202109 <- function( pnombrewf, pvirgen=FALSE )
   #ZZ_final_semillerio_baseline( "ZZ0001-sem-01-zz-00", c("HT0001-sem-01-zz","TS0001-sem") )
 
   # Leer las configuraciones subóptimas del archivo
-  configuraciones_suboptimas <- fread("BO_log_suboptimos.txt")
+  configuraciones_suboptimas <- fread("~/labo2024v1/src/workflow-01/BO_log_suboptimos.txt")
 
   # Iterar sobre las configuraciones y llamar a ZZ_final_semillerio_baseline
   for (i in 1:nrow(configuraciones_suboptimas)) {
@@ -388,7 +391,7 @@ corrida_baseline_semillerio_202107 <- function( pnombrewf, pvirgen=FALSE )
   #ZZ_final_semillerio_baseline( "ZZ0002-sem-02-zz-00", c("HT0002-sem-02-zz","TS0002-sem") )
 
   # Leer las configuraciones subóptimas del archivo
-  configuraciones_suboptimas <- fread("BO_log_suboptimos.txt")
+  configuraciones_suboptimas <- fread("~/labo2024v1/src/workflow-01/BO_log_suboptimos.txt")
 
   # Iterar sobre las configuraciones y llamar a ZZ_final_semillerio_baseline
   for (i in 1:nrow(configuraciones_suboptimas)) {
