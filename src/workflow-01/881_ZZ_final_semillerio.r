@@ -231,15 +231,19 @@ GrabarOutput()
 
 # leo la salida de la optimizacion bayesiana
 # En PARAM$input[1]  tango el nombre del experimento de Hyperparameter Tuning
-arch_log <- paste0( "./", PARAM$input[1], "/BO_log.txt")
-tb_log <- fread(arch_log)
-setorder(tb_log, -ganancia)
+#arch_log <- paste0( "./", PARAM$input[1], "/BO_log.txt")
+#tb_log <- fread(arch_log)
+#setorder(tb_log, -ganancia)
 
 #vacio tb_log
-tb_log <- tb_log[0, ]
+#tb_log <- tb_log[0, ]
 
 # Asignar valores de PARAM$hiperparametros en la primera fila
-tb_log[1, names(PARAM$hiperparametros) := PARAM$hiperparametros]
+#tb_log[1, names(PARAM$hiperparametros) := PARAM$hiperparametros]
+
+# Asumiendo que `hiperparametros` ya es un data.table o un vector de listas
+tb_log <- data.table::data.table(PARAM$hiperparametros)
+
 
 
 # leo el dataset donde voy a entrenar el modelo final
