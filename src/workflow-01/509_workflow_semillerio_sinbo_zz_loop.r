@@ -296,8 +296,8 @@ ZZ_final_semillerio_baseline <- function( pmyexp, pinputexps,hiperparametros, ps
 
   param_local$hiperparametros <- hiperparametros
 
-  print("hiperparametros")
-  print(hiperparametros)
+  #print("hiperparametros")
+  #print(hiperparametros)
 
   param_local$kaggle$envios_desde <-  9500L
   param_local$kaggle$envios_hasta <- 11500L
