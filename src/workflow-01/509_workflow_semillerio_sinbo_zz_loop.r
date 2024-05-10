@@ -284,15 +284,17 @@ ZZ_final_baseline <- function( pmyexp, pinputexps, pserver="local")
 #------------------------------------------------------------------------------
 # proceso ZZ_final  baseline
 
-ZZ_final_semillerio_baseline <- function( pmyexp, pinputexps, pserver="local")
+ZZ_final_semillerio_baseline <- function( pmyexp, pinputexps,hiperparametros, pserver="local")
 {
   if( -1 == (param_local <- exp_init( pmyexp, pinputexps, pserver ))$resultado ) return( 0 )# linea fija
 
   #cambio por la versión modificada de ZZ_final
-  param_local$meta$script <- "/src/workflow-01/z881_ZZ_final_semillerio.r"
+  param_local$meta$script <- "/src/workflow-01/881_ZZ_final_semillerio.r"
 
   # Que modelos quiero, segun su posicion en el ranking e la Bayesian Optimizacion, ordenado por ganancia descendente
-  param_local$modelos_rank <- c(1)
+  param_local$modelos_rank <- c(1) #finalmente va a quedar una sola línea así que cualquier ganancia que tenga va a ser lo que use.
+
+  param_local$hiperparametros <- hiperparametros
 
   param_local$kaggle$envios_desde <-  9500L
   param_local$kaggle$envios_hasta <- 11500L
@@ -339,8 +341,20 @@ corrida_baseline_semillerio_202109 <- function( pnombrewf, pvirgen=FALSE )
   #aquí debería inyectar los malos parámetros en BO.log con una ganancia extraordinaria
   #HT0001-sem-01-zz es la copia de algún HT previo que funcionó en el que inyectaré la última línea de BO.log con un parámetro conveniente, debe copiarse manualmente con
   #cp -rp ~/buckets/b1/exp/HT0001-sem-01 ~/buckets/b1/exp/HT0001-sem-01-zz
-  ZZ_final_semillerio_baseline( "ZZ0001-sem-01-zz-00", c("HT0001-sem-01-zz","TS0001-sem") )
+  #ZZ_final_semillerio_baseline( "ZZ0001-sem-01-zz-00", c("HT0001-sem-01-zz","TS0001-sem") )
 
+  # Leer las configuraciones subóptimas del archivo
+  configuraciones_suboptimas <- fread("BO_log_suboptimos.txt")
+
+  # Iterar sobre las configuraciones y llamar a ZZ_final_semillerio_baseline
+  for (i in 1:nrow(configuraciones_suboptimas)) {
+    # Llamar a ZZ_final_semillerio_baseline con la configuración subóptima
+    nombre_experimento <- paste0("ZZ0001-sem-fijo-", i)
+    ZZ_final_semillerio_baseline(nombre_experimento,
+     c("HT0001-sem-01-zz","TS0001-sem"),
+     hiperparametros = configuraciones_suboptimas[i, ]
+    )
+  }  
 
   exp_wf_end( pnombrewf, pvirgen ) # linea fija
 }
@@ -371,8 +385,20 @@ corrida_baseline_semillerio_202107 <- function( pnombrewf, pvirgen=FALSE )
   #HT0002-sem-02-zz es la copia de algún HT previo que funcionó en el que inyectaré la última línea de BO.log con un parámetro conveniente, debe copiarse manualmente con
   #cp -rp ~/buckets/b1/exp/HT0002-sem-01 ~/buckets/b1/exp/HT0002-sem-02-zz
 
-  ZZ_final_semillerio_baseline( "ZZ0002-sem-02-zz-00", c("HT0002-sem-02-zz","TS0002-sem") )
+  #ZZ_final_semillerio_baseline( "ZZ0002-sem-02-zz-00", c("HT0002-sem-02-zz","TS0002-sem") )
 
+  # Leer las configuraciones subóptimas del archivo
+  configuraciones_suboptimas <- fread("BO_log_suboptimos.txt")
+
+  # Iterar sobre las configuraciones y llamar a ZZ_final_semillerio_baseline
+  for (i in 1:nrow(configuraciones_suboptimas)) {
+    # Llamar a ZZ_final_semillerio_baseline con la configuración subóptima
+    nombre_experimento <- paste0("ZZ0002-sem-fijo-", i)
+    ZZ_final_semillerio_baseline(nombre_experimento,
+     c("HT0002-sem-02-zz","TS0002-sem"),
+     hiperparametros = configuraciones_suboptimas[i, ]
+    )
+  }  
 
   exp_wf_end( pnombrewf, pvirgen ) # linea fija
 }
