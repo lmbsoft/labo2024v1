@@ -313,7 +313,7 @@ ZZ_final_semillerio_baseline <- function( pmyexp, pinputexps,hiperparametros, ps
   #param_local$semillerio <- 20
   #pongo 5 semillas por velocidad, luego ver de parametrizar
   #derminar con un test de wilcox cuál sería el número mínimo para mantener el poder predictivo
-  param_local$semillerio <- 2 #5 
+  param_local$semillerio <- 20 #5 
 
   return( exp_correr_script( param_local ) ) # linea fija
 }
@@ -352,7 +352,7 @@ corrida_baseline_semillerio_202109 <- function( pnombrewf, pvirgen=FALSE )
   # Iterar sobre las configuraciones y llamar a ZZ_final_semillerio_baseline
   for (i in 1:nrow(configuraciones_suboptimas)) {
     # Llamar a ZZ_final_semillerio_baseline con la configuración subóptima
-    nombre_experimento <- paste0("ZZ0001-sem-fijo-03-", i)
+    nombre_experimento <- paste0("ZZ0001-sem-fijo-04-", i)
     ZZ_final_semillerio_baseline(nombre_experimento,
      c("HT0001-sem-01-zz","TS0001-sem"),
      hiperparametros = configuraciones_suboptimas[i, ]
@@ -396,7 +396,7 @@ corrida_baseline_semillerio_202107 <- function( pnombrewf, pvirgen=FALSE )
   # Iterar sobre las configuraciones y llamar a ZZ_final_semillerio_baseline
   for (i in 1:nrow(configuraciones_suboptimas)) {
     # Llamar a ZZ_final_semillerio_baseline con la configuración subóptima
-    nombre_experimento <- paste0("ZZ0002-sem-fijo-03-", i)
+    nombre_experimento <- paste0("ZZ0002-sem-fijo-04-", i)
     ZZ_final_semillerio_baseline(nombre_experimento,
      c("HT0002-sem-02-zz","TS0002-sem"),
      hiperparametros = configuraciones_suboptimas[i, ]
@@ -411,12 +411,12 @@ corrida_baseline_semillerio_202107 <- function( pnombrewf, pvirgen=FALSE )
 #Aqui empieza el programa
 
 
-corrida_baseline_semillerio_202109( "basem01-zz-03" )
+corrida_baseline_semillerio_202109( "basem01-zz-04" )
 
 
 # Luego partiendo de  FE0001
 # genero TS0002, HT0002 y ZZ0002
 
-corrida_baseline_semillerio_202107( "basem02-zz-03" )
+corrida_baseline_semillerio_202107( "basem02-zz-04" )
 
  
