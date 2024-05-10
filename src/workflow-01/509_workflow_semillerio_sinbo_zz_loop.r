@@ -408,12 +408,12 @@ corrida_baseline_semillerio_202107 <- function( pnombrewf, pvirgen=FALSE )
 #Aqui empieza el programa
 
 
-corrida_baseline_semillerio_202109( "basem01-zz-00" )
+corrida_baseline_semillerio_202109( "basem01-zz-01" )
 
 
 # Luego partiendo de  FE0001
 # genero TS0002, HT0002 y ZZ0002
 
-corrida_baseline_semillerio_202107( "basem02-zz-00" )
+corrida_baseline_semillerio_202107( "basem02-zz-01" )
 
  
