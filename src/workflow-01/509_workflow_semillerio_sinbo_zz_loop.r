@@ -389,7 +389,7 @@ corrida_baseline_semillerio_202107 <- function( pnombrewf, pvirgen=FALSE )
   # El ZZ depente de HT y TS
   #aquí debería inyectar los malos parámetros en BO.log con una ganancia extraordinaria
   #HT0002-sem-02-zz es la copia de algún HT previo que funcionó en el que inyectaré la última línea de BO.log con un parámetro conveniente, debe copiarse manualmente con
-  #cp -rp ~/buckets/b1/exp/HT0002-sem-01 ~/buckets/b1/exp/HT0002-sem-02-zz
+  #cp -rp ~/buckets/b1/exp/HT0002-sem-02 ~/buckets/b1/exp/HT0002-sem-02-zz
 
   #ZZ_final_semillerio_baseline( "ZZ0002-sem-02-zz-00", c("HT0002-sem-02-zz","TS0002-sem") )
 
