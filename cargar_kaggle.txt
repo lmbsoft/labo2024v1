@@ -1,6 +1,8 @@
 for archivo in *.csv; do kaggle competitions submit -c labo-i-2024-virtual -f "$archivo" -m "$archivo"; echo "Archivo $archivo enviado."; done
 
 
+find ZZ000{1,2}-sem* -name 'ZZ*.csv' -exec md5sum {} \; | tee analisis_md5.txt
+
 #!/bin/bash
 
 # Directorio donde se encuentran los archivos CSV
