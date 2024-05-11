@@ -339,7 +339,7 @@ corrida_baseline_semillerio_202109 <- function( pnombrewf, pvirgen=FALSE )
   #aquí debería inyectar los malos parámetros en BO.log con una ganancia extraordinaria
   #HT0001-sem-01-zz es la copia de algún HT previo que funcionó en el que inyectaré la última línea de BO.log con un parámetro conveniente, debe copiarse manualmente con
   #cp -rp ~/buckets/b1/exp/HT0001-sem-01 ~/buckets/b1/exp/HT0001-sem-01-zz
-  ZZ_final_semillerio_baseline( "ZZ0001-sem-01-zz-10", c("HT0001-sem-01-zz","TS0001-sem") )
+  ZZ_final_semillerio_baseline( "ZZ0001-sem-01-zzs-10", c("HT0001-sem-01-zz","TS0001-sem") )
 
 
   exp_wf_end( pnombrewf, pvirgen ) # linea fija
@@ -371,7 +371,7 @@ corrida_baseline_semillerio_202107 <- function( pnombrewf, pvirgen=FALSE )
   #HT0002-sem-02-zz es la copia de algún HT previo que funcionó en el que inyectaré la última línea de BO.log con un parámetro conveniente, debe copiarse manualmente con
   #cp -rp ~/buckets/b1/exp/HT0002-sem-01 ~/buckets/b1/exp/HT0002-sem-02-zz
 
-  ZZ_final_semillerio_baseline( "ZZ0002-sem-02-zz-10", c("HT0002-sem-02-zz","TS0002-sem") )
+  ZZ_final_semillerio_baseline( "ZZ0002-sem-02-zzs-10", c("HT0002-sem-02-zz","TS0002-sem") )
 
 
   exp_wf_end( pnombrewf, pvirgen ) # linea fija
@@ -382,12 +382,12 @@ corrida_baseline_semillerio_202107 <- function( pnombrewf, pvirgen=FALSE )
 #Aqui empieza el programa
 
 
-corrida_baseline_semillerio_202109( "basem01-zz-10" )
+corrida_baseline_semillerio_202109( "basem01-zzs-10" )
 
 
 # Luego partiendo de  FE0001
 # genero TS0002, HT0002 y ZZ0002
 
-#corrida_baseline_semillerio_202107( "basem02-zz-10" )
+#corrida_baseline_semillerio_202107( "basem02-zzs-10" )
 
  
