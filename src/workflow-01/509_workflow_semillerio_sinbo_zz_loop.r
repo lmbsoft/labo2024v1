@@ -284,7 +284,7 @@ ZZ_final_baseline <- function( pmyexp, pinputexps, pserver="local")
 #------------------------------------------------------------------------------
 # proceso ZZ_final  baseline
 
-ZZ_final_semillerio_baseline <- function( pmyexp, pinputexps,hiperparametros, pserver="local")
+ZZ_final_semillerio_baseline <- function( pmyexp, pinputexps,hiperparametros, future_con_clase, pserver="local")
 {
   if( -1 == (param_local <- exp_init( pmyexp, pinputexps, pserver ))$resultado ) return( 0 )# linea fija
 
@@ -295,6 +295,8 @@ ZZ_final_semillerio_baseline <- function( pmyexp, pinputexps,hiperparametros, ps
   param_local$modelos_rank <- c(1) #finalmente va a quedar una sola línea así que cualquier ganancia que tenga va a ser lo que use.
 
   param_local$hiperparametros <- hiperparametros
+
+  param_local$future_con_clase <- future_con_clase
 
   #print("hiperparametros")
   #print(hiperparametros)
@@ -352,10 +354,11 @@ corrida_baseline_semillerio_202109 <- function( pnombrewf, pvirgen=FALSE )
   # Iterar sobre las configuraciones y llamar a ZZ_final_semillerio_baseline
   for (i in 1:nrow(configuraciones_suboptimas)) {
     # Llamar a ZZ_final_semillerio_baseline con la configuración subóptima
-    nombre_experimento <- paste0("ZZ0001-sem-fijo-04-", i)
+    nombre_experimento <- paste0("ZZ0001-sem-fijo-05-", i)
     ZZ_final_semillerio_baseline(nombre_experimento,
      c("HT0001-sem-01-zz","TS0001-sem"),
-     hiperparametros = configuraciones_suboptimas[i, ]
+     hiperparametros = configuraciones_suboptimas[i, ],
+     future_con_clase = FALSE
     )
   }  
 
@@ -396,10 +399,11 @@ corrida_baseline_semillerio_202107 <- function( pnombrewf, pvirgen=FALSE )
   # Iterar sobre las configuraciones y llamar a ZZ_final_semillerio_baseline
   for (i in 1:nrow(configuraciones_suboptimas)) {
     # Llamar a ZZ_final_semillerio_baseline con la configuración subóptima
-    nombre_experimento <- paste0("ZZ0002-sem-fijo-04-", i)
+    nombre_experimento <- paste0("ZZ0002-sem-fijo-05-", i)
     ZZ_final_semillerio_baseline(nombre_experimento,
      c("HT0002-sem-02-zz","TS0002-sem"),
-     hiperparametros = configuraciones_suboptimas[i, ]
+     hiperparametros = configuraciones_suboptimas[i, ],
+     future_con_clase = TRUE
     )
   }  
 
@@ -411,12 +415,12 @@ corrida_baseline_semillerio_202107 <- function( pnombrewf, pvirgen=FALSE )
 #Aqui empieza el programa
 
 
-corrida_baseline_semillerio_202109( "basem01-zz-04" )
+corrida_baseline_semillerio_202109( "basem01-zz-05" )
 
 
 # Luego partiendo de  FE0001
 # genero TS0002, HT0002 y ZZ0002
 
-corrida_baseline_semillerio_202107( "basem02-zz-04" )
+corrida_baseline_semillerio_202107( "basem02-zz-05" )
 
  

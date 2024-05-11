@@ -258,7 +258,7 @@ dfuture <- fread(arch_future)
 # logical que me indica si los dtos de future tienen la clase con valores,
 # y NO va para Kaggle
 # future_con_clase <- dfuture[clase_ternaria == "" | is.na(clase_ternaria), .N] == 0
-future_con_clase <- FALSE
+future_con_clase <- PARAM$future_con_clase #FALSE
 
 if (!future_con_clase) {
   # creo carpeta old, donde voy moviendo el kaggle viejo
