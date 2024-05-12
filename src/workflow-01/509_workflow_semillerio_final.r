@@ -115,8 +115,8 @@ FE_historia_baseline <- function( pmyexp, pinputexps, pserver="local")
   param_local$meta$script <- "/src/workflow-01/z541_FE_historia.r"
 
   param_local$lag1 <- TRUE
-  param_local$lag2 <- FALSE # no me engraso con los lags de orden 2
-  param_local$lag3 <- FALSE # no me engraso con los lags de orden 3
+  param_local$lag2 <- TRUE # no me engraso con los lags de orden 2
+  param_local$lag3 <- TRUE # no me engraso con los lags de orden 3
 
   # baseline
   param_local$Tendencias1$run <- TRUE  # FALSE, no corre nada de lo que sigue
@@ -129,7 +129,7 @@ FE_historia_baseline <- function( pmyexp, pinputexps, pserver="local")
   param_local$Tendencias1$ratiomax <- FALSE
 
   # baseline
-  param_local$Tendencias2$run <- FALSE
+  param_local$Tendencias2$run <- TRUE
   param_local$Tendencias2$ventana <- 6
   param_local$Tendencias2$tendencia <- TRUE
   param_local$Tendencias2$minimo <- FALSE
@@ -147,9 +147,9 @@ FE_historia_baseline <- function( pmyexp, pinputexps, pserver="local")
   param_local$RandomForest$mtry <- 40
 
   # varia de 0.0 a 2.0, si es 0.0 NO se activan
-  param_local$CanaritosAsesinos$ratio <- 0.0
+  param_local$CanaritosAsesinos$ratio <- 2.0
   # desvios estandar de la media, para el cutoff
-  param_local$CanaritosAsesinos$desvios <- 4.0
+  param_local$CanaritosAsesinos$desvios <- 0.75
 
   return( exp_correr_script( param_local ) ) # linea fija
 }
