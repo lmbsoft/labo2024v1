@@ -1,4 +1,6 @@
 # Corrida general del Workflow de semillerio
+# Versión del script a ejecutar por Leandro Boisselier
+# Laboratorio 1 - 2024
 
 # limpio la memoria
 rm(list = ls(all.names = TRUE)) # remove all objects
@@ -90,14 +92,15 @@ DR_drifting_baseline <- function( pmyexp, pinputexps, pserver="local")
 {
   if( -1 == (param_local <- exp_init( pmyexp, pinputexps, pserver ))$resultado ) return( 0 )# linea fija
 
-
-  param_local$meta$script <- "/src/workflow-01/z531_DR_corregir_drifting.r"
+  #param_local$meta$script <- "/src/workflow-01/z531_DR_corregir_drifting.r"
+  #Aplicado sugerencia grupo 02
+  param_local$meta$script <- "/src/workflow-01/531_DR_corregir_drifting_usd.r"
 
   # No me engraso las manos con Feature Engineering manual
   param_local$variables_intrames <- TRUE
   # valores posibles
   #  "ninguno", "rank_simple", "rank_cero_fijo", "deflacion", "estandarizar"
-  param_local$metodo <- "rank_cero_fijo"
+  param_local$metodo <- "deflacion_usd"
 
   return( exp_correr_script( param_local ) ) # linea fija
 }
