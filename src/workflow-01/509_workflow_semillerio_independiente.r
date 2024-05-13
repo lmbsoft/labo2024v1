@@ -334,7 +334,7 @@ corrida_baseline_semillerio_202109 <- function( pnombrewf, pvirgen=FALSE )
   ## Atención, aquí cambiar por los nombres de su experimento
   ## c("HT0001-sem","TS0001-sem")
   ##
-  ZZ_final_semillerio_baseline( "ZZ0001-sem", c("HT0001-sem","TS0001-sem") )
+  ZZ_final_semillerio_baseline( "ZZ0001-sem-final2", c("HT0001-sem-final","TS0001-sem-final") )
 
   exp_wf_end( pnombrewf, pvirgen ) # linea fija
 }
@@ -372,7 +372,7 @@ corrida_baseline_semillerio_202107 <- function( pnombrewf, pvirgen=FALSE )
 #Aqui empieza el programa
 
 
-corrida_baseline_semillerio_202109( "basem01" )
+corrida_baseline_semillerio_202109( "basem01-final-2" )
 
 
 # Luego partiendo de  FE0001
