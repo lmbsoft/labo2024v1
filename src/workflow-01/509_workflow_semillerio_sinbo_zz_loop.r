@@ -354,7 +354,7 @@ corrida_baseline_semillerio_202109 <- function( pnombrewf, pvirgen=FALSE )
   # Iterar sobre las configuraciones y llamar a ZZ_final_semillerio_baseline
   for (i in 1:nrow(configuraciones_suboptimas)) {
     # Llamar a ZZ_final_semillerio_baseline con la configuración subóptima
-    nombre_experimento <- paste0("ZZ0001-sem-fijo-07-", i)
+    nombre_experimento <- paste0("ZZ0001-sem-fijo-20-", i)
     ZZ_final_semillerio_baseline(nombre_experimento,
      c("HT0001-sem-01-zz","TS0001-sem"),
      hiperparametros = configuraciones_suboptimas[i, ],
@@ -399,7 +399,7 @@ corrida_baseline_semillerio_202107 <- function( pnombrewf, pvirgen=FALSE )
   # Iterar sobre las configuraciones y llamar a ZZ_final_semillerio_baseline
   for (i in 1:nrow(configuraciones_suboptimas)) {
     # Llamar a ZZ_final_semillerio_baseline con la configuración subóptima
-    nombre_experimento <- paste0("ZZ0002-sem-fijo-07-", i)
+    nombre_experimento <- paste0("ZZ0002-sem-fijo-20-", i)
     ZZ_final_semillerio_baseline(nombre_experimento,
      c("HT0002-sem-02-zz","TS0002-sem"),
      hiperparametros = configuraciones_suboptimas[i, ],
@@ -418,12 +418,12 @@ corrida_baseline_semillerio_202107 <- function( pnombrewf, pvirgen=FALSE )
 # en pocas palabras quedaban todas las entregas iguales.
 # Utilizar la versión simple hasta que se resuelva el problema.
 # 509_workflow_semillerio_sinbo_zz_simple.r
-corrida_baseline_semillerio_202109( "basem01-zz-07" )
+corrida_baseline_semillerio_202109( "basem01-zz-20" )
 
 
 # Luego partiendo de  FE0001
 # genero TS0002, HT0002 y ZZ0002
 
-corrida_baseline_semillerio_202107( "basem02-zz-07" )
+corrida_baseline_semillerio_202107( "basem02-zz-20" )
 
  
