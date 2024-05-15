@@ -236,7 +236,7 @@ GrabarOutput()
 arch_log <- paste0( "BO_log.txt")
 # Asumiendo que `hiperparametros` ya es un data.table o un vector de listas
 tb_log <- data.table::data.table(PARAM$hiperparametros)
-tb_log <- fwrite(arch_log)
+fwrite(tb_log, arch_log, sep = "\t")
 
 tb_log <- fread(arch_log)
 setorder(tb_log, -ganancia)
