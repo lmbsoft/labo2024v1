@@ -235,7 +235,9 @@ GrabarOutput()
 #arch_log <- paste0( "./", PARAM$input[2], "/BO_log.txt")
 arch_log <- paste0( "BO_log.txt")
 # Asumiendo que `hiperparametros` ya es un data.table o un vector de listas
-tb_log <- data.table::data.table(PARAM$hiperparametros)
+#tb_log <- data.table::data.table(PARAM$hiperparametros)
+hiperparametros <- PARAM$hiperparametros
+tb_log <- data.table::data.table(t(hiperparametros))
 fwrite(tb_log, arch_log, sep = "\t")
 
 tb_log <- fread(arch_log)
