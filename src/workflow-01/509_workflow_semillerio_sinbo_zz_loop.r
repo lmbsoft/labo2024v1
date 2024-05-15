@@ -413,11 +413,6 @@ corrida_baseline_semillerio_202107 <- function( pnombrewf, pvirgen=FALSE )
 #------------------------------------------------------------------------------
 #------------------------------------------------------------------------------
 #Aqui empieza el programa
-
-##ATENCIÓN, luego de algunas pruebas encontramos un error que debe ser resuelto.
-# en pocas palabras quedaban todas las entregas iguales.
-# Utilizar la versión simple hasta que se resuelva el problema.
-# 509_workflow_semillerio_sinbo_zz_simple.r
 corrida_baseline_semillerio_202109( "basem01-zz-24" )
 
 
