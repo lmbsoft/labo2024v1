@@ -232,7 +232,8 @@ GrabarOutput()
 
 # leo la salida de la optimizacion bayesiana
 # En PARAM$input[2]  tango el nombre del experimento de ZZ
-arch_log <- paste0( "./", PARAM$input[2], "/BO_log.txt")
+#arch_log <- paste0( "./", PARAM$input[2], "/BO_log.txt")
+arch_log <- paste0( "BO_log.txt")
 # Asumiendo que `hiperparametros` ya es un data.table o un vector de listas
 tb_log <- data.table::data.table(PARAM$hiperparametros)
 tb_log <- fwrite(arch_log)
